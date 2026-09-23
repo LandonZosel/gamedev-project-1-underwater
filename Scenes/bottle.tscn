@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://cui2i3upn4tm2"]
+
+[ext_resource type="Texture2D" uid="uid://cdl14a1x5jxac" path="res://Sprites/Custom/Trash/bottle2.png" id="1_35es5"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vs0ra"]
+radius = 3.0
+height = 12.0
+
+[node name="Bottle" type="Area2D" unique_id=1752162929]
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1013740780]
+texture = ExtResource("1_35es5")
+
+[node name="Hitbox" type="CollisionShape2D" parent="." unique_id=1308236269]
+shape = SubResource("CapsuleShape2D_vs0ra")

@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://be60afwpig4li"]
+
+[ext_resource type="Texture2D" uid="uid://dm16iqsc7nh8f" path="res://Sprites/Custom/Trash/can_rings2.png" id="1_tuc87"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vs0ra"]
+size = Vector2(10, 6)
+
+[node name="CanRings" type="Area2D" unique_id=991410220]
+
+[node name="Hitbox" type="CollisionShape2D" parent="." unique_id=1079697030]
+shape = SubResource("RectangleShape2D_vs0ra")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1492870104]
+texture = ExtResource("1_tuc87")
