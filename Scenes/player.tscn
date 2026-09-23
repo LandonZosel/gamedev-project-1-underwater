@@ -1,16 +1,90 @@
-[gd_scene format=3 uid="uid://cerno7poh4mwm"]
+[gd_scene format=3 uid="uid://curaxfesyhabc"]
 
-[ext_resource type="Texture2D" uid="uid://cwnakig8s41sx" path="res://Sprites/Custom/crab_open.png" id="1_v0iea"]
+[ext_resource type="Texture2D" uid="uid://bnxya3bclr15o" path="res://Sprites/Custom/dolphin&crab.png" id="1_6v3oi"]
+[ext_resource type="Texture2D" uid="uid://nru0yhpt4ms1" path="res://Sprites/Custom/Player/dolphin_crab_move_1.png" id="2_fkybt"]
+[ext_resource type="Texture2D" uid="uid://bx3qd7f27f8p8" path="res://Sprites/Custom/Player/dolphin_crab_move_2.png" id="3_x3wgy"]
+[ext_resource type="Texture2D" uid="uid://bypooql0t88jh" path="res://Sprites/Custom/Player/dolphin_crab_move_3.png" id="4_3smsa"]
+[ext_resource type="Texture2D" uid="uid://dy0vgcw8l3b3i" path="res://Sprites/Custom/Player/dolphin_crab_idle.png" id="5_8erm5"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vs0ra"]
-size = Vector2(24, 24)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cvnsp"]
+radius = 2.0
+height = 10.0
 
-[node name="Player" type="CharacterBody2D" unique_id=359222316]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pimxd"]
+size = Vector2(5, 5)
 
-[node name="Sprite" type="Sprite2D" parent="." unique_id=1288263599]
-texture = ExtResource("1_v0iea")
-offset = Vector2(0, -16)
+[sub_resource type="Animation" id="Animation_v0iea"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_6v3oi")]
+}
 
-[node name="Hitbox" type="CollisionShape2D" parent="." unique_id=200914506]
-position = Vector2(0, -12)
-shape = SubResource("RectangleShape2D_vs0ra")
+[sub_resource type="Animation" id="Animation_cvnsp"]
+resource_name = "idle"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_6v3oi")]
+}
+
+[sub_resource type="Animation" id="Animation_6t5aa"]
+resource_name = "move"
+length = 0.39999999999999997
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_fkybt"), ExtResource("3_x3wgy"), ExtResource("4_3smsa"), ExtResource("5_8erm5")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vgqql"]
+_data = {
+&"RESET": SubResource("Animation_v0iea"),
+&"idle": SubResource("Animation_cvnsp"),
+&"move": SubResource("Animation_6t5aa")
+}
+
+[node name="Player" type="CharacterBody2D" unique_id=1837357171]
+z_index = 1
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1745029707]
+texture = ExtResource("1_6v3oi")
+
+[node name="DolphinHitbox" type="CollisionShape2D" parent="." unique_id=1787071373]
+position = Vector2(1, -1)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_cvnsp")
+
+[node name="Camera" type="Camera2D" parent="." unique_id=788704771]
+zoom = Vector2(6, 6)
+
+[node name="CrabHitbox" type="CollisionShape2D" parent="." unique_id=603589135]
+position = Vector2(5.5, 3.5)
+shape = SubResource("RectangleShape2D_pimxd")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1429204106]
+libraries/ = SubResource("AnimationLibrary_vgqql")
