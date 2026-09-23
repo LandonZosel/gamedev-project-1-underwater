@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cwvqiuasygw1i"]
+
+[ext_resource type="Texture2D" uid="uid://b30h2880ai12j" path="res://Sprites/Custom/Mine/mine.png" id="1_qoe3o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6444e"]
+size = Vector2(12, 12)
+
+[node name="Mine" type="Area2D" unique_id=204913010]
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1861864162]
+texture = ExtResource("1_qoe3o")
+
+[node name="Hitbox" type="CollisionShape2D" parent="." unique_id=1647363208]
+shape = SubResource("RectangleShape2D_6444e")

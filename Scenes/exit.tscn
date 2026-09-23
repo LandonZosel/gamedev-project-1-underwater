@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dquwuw13rva2e"]
+
+[ext_resource type="Texture2D" uid="uid://b2fimof6fu4g7" path="res://Sprites/Custom/Whirlpool/whirlpool_5.png" id="1_35a55"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vs0ra"]
+radius = 12.0
+
+[node name="Exit" type="Area2D" unique_id=1653840755]
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1703413542]
+texture = ExtResource("1_35a55")
+
+[node name="Hitbox" type="CollisionShape2D" parent="." unique_id=1584824151]
+shape = SubResource("CircleShape2D_vs0ra")

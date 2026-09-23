@@ -46,7 +46,7 @@ func _physics_process(delta: float) -> void:
 		velocity = Vector2.RIGHT.rotated(rotation) * (move_direction * speed)
 	else:
 		# Smoothly slide to a halt when no movement keys are pressed
-		velocity = velocity.move_toward(Vector2.ZERO, speed * delta * 10)
+		velocity = velocity.move_toward(Vector2.ZERO, speed * delta * 5)
 
 	move_and_slide()
 	
