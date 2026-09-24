@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://c4o63xtnyopyf"]
+
+[ext_resource type="Script" uid="uid://cuhodiwsefv56" path="res://Scripts/drone.gd" id="1_i3b1v"]
+[ext_resource type="Texture2D" uid="uid://batncu3brvqpg" path="res://Sprites/Custom/Drone/drone_1.png" id="1_o36xs"]
+[ext_resource type="Texture2D" uid="uid://cdd6a8atyeaqn" path="res://Sprites/Custom/Drone/drone_2.png" id="2_i3b1v"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8i23i"]
+radius = 8.0
+height = 24.0
+
+[sub_resource type="Animation" id="Animation_x74uf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_o36xs")]
+}
+
+[sub_resource type="Animation" id="Animation_y2b23"]
+resource_name = "idle"
+length = 0.19999999999999998
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("2_i3b1v"), ExtResource("1_o36xs")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n202n"]
+_data = {
+&"RESET": SubResource("Animation_x74uf"),
+&"idle": SubResource("Animation_y2b23")
+}
+
+[node name="Drone" type="CharacterBody2D" unique_id=365831183]
+script = ExtResource("1_i3b1v")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1659943247]
+position = Vector2(0, -6)
+texture = ExtResource("1_o36xs")
+
+[node name="PhysicsHitbox (disabled)" type="CollisionShape2D" parent="." unique_id=1938478163]
+visible = false
+position = Vector2(0, 9)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_8i23i")
+disabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1944273891]
+libraries/ = SubResource("AnimationLibrary_n202n")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1457164302]
+collision_layer = 8
+collision_mask = 4
+
+[node name="AreaHitbox" type="CollisionShape2D" parent="Area2D" unique_id=75446020]
+position = Vector2(0, 9)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_8i23i")
+
+[node name="Trash" type="Marker2D" parent="." unique_id=172244562]
+z_index = -1
+position = Vector2(0, 11)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

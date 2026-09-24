@@ -15,9 +15,7 @@ func _process(_delta: float) -> void:
 	pass
 
 func _physics_process(delta: float) -> void:
-	# Move steadily toward the current target position
 	global_position = global_position.move_toward(target_pos, move_speed * delta)
-	# When the enemy arrives, swap the target to create a patrol loop
 	if global_position == target_pos:
 		if target_pos == start_pos:
 			target_pos = start_pos + move_direction

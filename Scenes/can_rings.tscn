@@ -1,14 +1,31 @@
 [gd_scene format=3 uid="uid://be60afwpig4li"]
 
+[ext_resource type="Script" uid="uid://rgt0llfoeyrb" path="res://Scripts/trash.gd" id="1_am0ij"]
 [ext_resource type="Texture2D" uid="uid://dm16iqsc7nh8f" path="res://Sprites/Custom/Trash/can_rings2.png" id="1_tuc87"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vs0ra"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ucps"]
 size = Vector2(10, 6)
 
-[node name="CanRings" type="Area2D" unique_id=991410220]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_31m47"]
+size = Vector2(10, 6)
 
-[node name="Hitbox" type="CollisionShape2D" parent="." unique_id=1079697030]
-shape = SubResource("RectangleShape2D_vs0ra")
+[node name="CanRings" type="CharacterBody2D" unique_id=1070687770]
+collision_layer = 4
+collision_mask = 5
+script = ExtResource("1_am0ij")
 
-[node name="Sprite" type="Sprite2D" parent="." unique_id=1492870104]
+[node name="Area" type="Area2D" parent="." unique_id=119585714]
+collision_layer = 4
+collision_mask = 10
+
+[node name="Sprite" type="Sprite2D" parent="Area" unique_id=1210384797]
 texture = ExtResource("1_tuc87")
+
+[node name="AreaHitbox" type="CollisionShape2D" parent="Area" unique_id=146897166]
+shape = SubResource("RectangleShape2D_4ucps")
+
+[node name="PhysicsHitbox" type="CollisionShape2D" parent="." unique_id=1032702556]
+shape = SubResource("RectangleShape2D_31m47")
+
+[connection signal="body_entered" from="Area" to="." method="_on_area_body_entered"]
+[connection signal="body_exited" from="Area" to="." method="_on_area_body_exited"]

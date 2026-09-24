@@ -1,0 +1,54 @@
+extends CharacterBody2D
+
+@onready var Hitbox: CollisionShape2D = $PhysicsHitbox
+
+@export var buoyancy : float = 120
+@export var gravity : float = 60
+var player_in_hitbox : CharacterBody2D = null
+var gravityEnabled : bool = true
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+func _physics_process(delta: float) -> void:
+	 #handle gravity
+	if not gravityEnabled:
+		velocity.y = 0
+	
+	if not is_on_floor() && gravityEnabled:
+		if _in_water():
+			if velocity.y > 20:
+				velocity.y -= buoyancy * delta
+			else:
+				velocity.y += 4 * delta
+		else:
+			velocity.y += gravity * delta
+			
+	move_and_slide()
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(_delta: float) -> void:
+	pass
+
+func _in_water() -> bool:
+	return position.y >= 0
+
+func _on_area_body_entered(body: Node2D) -> void:
+	if not body.is_in_group("Player"):
+		return
+	body.change_area(self)
+
+func _on_area_body_exited(body: Node2D) -> void:
+	if not body.is_in_group("Player"):
+		return
+	body.change_area(null)
+
+func stop_physics():
+	gravityEnabled = false
+	Hitbox.set_deferred("disabled", true)
+
+func start_physics():
+	gravityEnabled = true
+	Hitbox.set_deferred("disabled", false)

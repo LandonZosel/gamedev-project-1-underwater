@@ -69,7 +69,8 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D" unique_id=1837357171]
-z_index = 1
+z_index = 99
+collision_mask = 0
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1745029707]
 texture = ExtResource("1_6v3oi")
@@ -80,7 +81,7 @@ rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_cvnsp")
 
 [node name="Camera" type="Camera2D" parent="." unique_id=788704771]
-zoom = Vector2(6, 6)
+zoom = Vector2(3, 3)
 limit_left = 0
 limit_right = 384
 
@@ -90,3 +91,9 @@ shape = SubResource("RectangleShape2D_pimxd")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1429204106]
 libraries/ = SubResource("AnimationLibrary_vgqql")
+
+[node name="HeldItem" type="Marker2D" parent="." unique_id=995229416]
+position = Vector2(11, -4)
+
+[node name="CooldownTimer" type="Timer" parent="." unique_id=1702745500]
+one_shot = true

@@ -1,28 +1,30 @@
-[gd_scene format=3 uid="uid://1ru70fbvimqa"]
+[gd_scene format=3 uid="uid://drlm3qhdhs4um"]
 
-[ext_resource type="Texture2D" uid="uid://cdl14a1x5jxac" path="res://Sprites/Custom/Trash/bottle2.png" id="1_6umqr"]
-[ext_resource type="Script" uid="uid://rgt0llfoeyrb" path="res://Scripts/trash.gd" id="1_sfqge"]
+[ext_resource type="Script" uid="uid://rgt0llfoeyrb" path="res://Scripts/trash.gd" id="1_36yik"]
+[ext_resource type="Texture2D" uid="uid://dnt8shlhhii5x" path="res://Sprites/Custom/Trash/chip_bag2.png" id="1_rc1hy"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sfqge"]
-radius = 3.0
-height = 12.0
+radius = 2.0
+height = 10.0
 
-[node name="Bottle" type="CharacterBody2D" unique_id=1070687770]
+[node name="ChipBag" type="CharacterBody2D" unique_id=1070687770]
 collision_layer = 4
 collision_mask = 5
-script = ExtResource("1_sfqge")
+script = ExtResource("1_36yik")
 
 [node name="Area" type="Area2D" parent="." unique_id=119585714]
 collision_layer = 4
 collision_mask = 10
 
 [node name="Sprite" type="Sprite2D" parent="Area" unique_id=1210384797]
-texture = ExtResource("1_6umqr")
+texture = ExtResource("1_rc1hy")
 
 [node name="AreaHitbox" type="CollisionShape2D" parent="Area" unique_id=146897166]
+rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_sfqge")
 
 [node name="PhysicsHitbox" type="CollisionShape2D" parent="." unique_id=1032702556]
+rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_sfqge")
 
 [connection signal="body_entered" from="Area" to="." method="_on_area_body_entered"]
