@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cerno7poh4mwm"]
+[gd_scene format=3 uid="uid://dq5htv86vls6c"]
 
 [ext_resource type="Script" uid="uid://dx7cbo2xginff" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://cwnakig8s41sx" path="res://Sprites/Custom/crab_open.png" id="1_v0iea"]

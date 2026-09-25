@@ -26,6 +26,11 @@ func _physics_process(delta: float) -> void:
 		else:
 			velocity.y += gravity * delta
 			
+	
+	#if trash randomly gets flung fast, stop movement
+	#if velocity.y > 100 || velocity.x > 100:
+		#velocity.y = 0
+		#velocity.x = 0
 	move_and_slide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -47,8 +52,10 @@ func _on_area_body_exited(body: Node2D) -> void:
 
 func stop_physics():
 	gravityEnabled = false
-	Hitbox.set_deferred("disabled", true)
+	Hitbox.disabled = true
 
 func start_physics():
 	gravityEnabled = true
+	velocity.y = 10
 	Hitbox.set_deferred("disabled", false)
+	

@@ -15,6 +15,8 @@ var trashAcceleration: float = 100
 
 var returningToStart: bool = false
 
+signal on_trash_deleted
+
 func _ready() -> void:
 	start_pos = global_position
 
@@ -65,6 +67,7 @@ func change_parent():
 	
 func reset_drone():
 	if trash:
+		on_trash_deleted.emit()
 		trash.queue_free()
 		trash = null
 		returningToStart = true
