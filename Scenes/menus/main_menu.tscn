@@ -1,0 +1,187 @@
+[gd_scene format=3 uid="uid://d03f48yok4ls3"]
+
+[ext_resource type="Script" uid="uid://dwupy6ogq3rwd" path="res://Scripts/main_menu.gd" id="1_6p7ge"]
+[ext_resource type="Texture2D" uid="uid://byvsa1ciejw26" path="res://Sprites/Atlantis/Screenshot (285).png" id="2_p6udj"]
+[ext_resource type="Script" uid="uid://q4assl7smk7a" path="res://Scripts/button.gd" id="3_eghu5"]
+[ext_resource type="Script" uid="uid://dfrdiorasymf8" path="res://Scripts/exit_button.gd" id="4_w0m5g"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vs0ra"]
+paragraph_spacing = -20.0
+font_size = 80
+font_color = Color(1, 0.2509804, 0.21176471, 1)
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 33
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0336k"]
+bg_color = Color(1, 0.2509804, 0.21176471, 1)
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uffod"]
+bg_color = Color(1, 0.2509804, 0.21176471, 1)
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ufr4i"]
+bg_color = Color(1, 0.32941177, 0.2901961, 1)
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_pimxd"]
+font_size = 30
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 0
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="MainMenu" type="Control" unique_id=182658270]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6p7ge")
+
+[node name="Background" type="TextureRect" parent="." unique_id=2682313]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_p6udj")
+expand_mode = 2
+
+[node name="Title" type="Label" parent="." unique_id=893996824]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -319.0
+offset_bottom = 324.0
+grow_horizontal = 0
+text = "TOO
+MANY
+CRABS!"
+label_settings = SubResource("LabelSettings_vs0ra")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayButton" type="Button" parent="." unique_id=421171439]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = 14.0
+offset_right = 211.0
+offset_bottom = 77.0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_0336k")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_uffod")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ufr4i")
+script = ExtResource("3_eghu5")
+
+[node name="Label" type="Label" parent="PlayButton" unique_id=268307833]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -105.5
+offset_top = -31.5
+offset_right = 105.5
+offset_bottom = 31.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Play"
+label_settings = SubResource("LabelSettings_pimxd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LevelSelectButton" type="Button" parent="." unique_id=1211500099]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = 105.0
+offset_right = 211.0
+offset_bottom = 168.0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_0336k")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_uffod")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ufr4i")
+script = ExtResource("3_eghu5")
+filePath = "res://Scenes/menus/level_select_menu.tscn"
+
+[node name="Label" type="Label" parent="LevelSelectButton" unique_id=979542141]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -105.5
+offset_top = -31.5
+offset_right = 105.5
+offset_bottom = 31.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Level Select"
+label_settings = SubResource("LabelSettings_pimxd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ExitButton" type="Button" parent="." unique_id=2070277385]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = 196.0
+offset_right = 211.0
+offset_bottom = 259.0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_0336k")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_uffod")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ufr4i")
+script = ExtResource("4_w0m5g")
+
+[node name="Label" type="Label" parent="ExitButton" unique_id=1191960876]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -105.5
+offset_top = -31.5
+offset_right = 105.5
+offset_bottom = 31.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Exit"
+label_settings = SubResource("LabelSettings_pimxd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="PlayButton" to="PlayButton" method="_on_pressed"]
+[connection signal="pressed" from="LevelSelectButton" to="LevelSelectButton" method="_on_pressed"]
+[connection signal="pressed" from="ExitButton" to="ExitButton" method="_on_pressed"]

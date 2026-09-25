@@ -14,7 +14,7 @@ extends CharacterBody2D
 @export var rotation_rate : float = 5 #og 5
 @export var speed: float = 120
 @export var rotation_speed: float = 80
-@export var cooldown_time: float = 0.2
+#@export var cooldown_time: float = 0.2
 @export var nextLevelPath : String = 'res://Scenes/levels/level_1.tscn'
 
 var move_input_x : float
@@ -23,7 +23,7 @@ var rotation_direction : float
 var move_direction : float
 var held_item : CharacterBody2D = null
 var current_area : CharacterBody2D = null
-var can_claw : bool = true
+#var can_claw : bool = true
 var entering_stage : bool = true
 
 const SPEED = 300.0
@@ -57,7 +57,7 @@ func _physics_process(delta: float) -> void:
 			var target_angle : float = velocity.angle()
 			rotation = lerp_angle(rotation, target_angle, rotation_speed * delta)
 	
-	if Input.is_action_pressed("claw") && can_claw:
+	if Input.is_action_just_pressed("claw"): #&& can_claw:
 		if current_area != null && current_area != held_item:
 			change_held_item(current_area)
 		elif held_item != null:
@@ -83,11 +83,11 @@ func change_area(area: CharacterBody2D):
 	current_area = area
 
 func change_held_item(item: CharacterBody2D):
-	if not can_claw:
-		return
+	#if not can_claw:
+		#return
 	if held_item == item:
 		return
-	can_claw = false
+	#can_claw = false
 	
 	if held_item:
 		print('get rid of the current held item ' + held_item.name + ' for the new item ' + item.name)
@@ -95,9 +95,9 @@ func change_held_item(item: CharacterBody2D):
 	
 	call_deferred('set_item', item)
 	
-	cooldown_timer.start(cooldown_time)
-	await cooldown_timer.timeout
-	can_claw = true
+	#cooldown_timer.start(cooldown_time)
+	#await cooldown_timer.timeout
+	#can_claw = true
 
 func set_item(item: CharacterBody2D):
 	held_item = item
@@ -117,15 +117,15 @@ func set_item(item: CharacterBody2D):
 	held_item.rotation = 0
 
 func drop_held_item():
-	if not can_claw:
-		return
-	can_claw = false
+	#if not can_claw:
+		#return
+	#can_claw = false
 	
 	await get_rid_of_held_item()
 	
-	cooldown_timer.start(cooldown_time)
-	await cooldown_timer.timeout
-	can_claw = true
+	#cooldown_timer.start(cooldown_time)
+	#await cooldown_timer.timeout
+	#can_claw = true
 
 func get_rid_of_held_item():
 	held_item.reparent(get_tree().current_scene)

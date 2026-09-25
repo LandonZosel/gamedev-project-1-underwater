@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://ma46m7r4y68h"]
 
-[ext_resource type="Script" uid="uid://dwupy6ogq3rwd" path="res://Scripts/main.gd" id="1_n8oda"]
+[ext_resource type="Script" uid="uid://dn1vhbapjcgij" path="res://Scripts/level.gd" id="1_041ro"]
 [ext_resource type="TileSet" uid="uid://cxlnowjnoqagq" path="res://Sprites/Atlantis/tileset3.tres" id="2_ee4lj"]
 [ext_resource type="TileSet" uid="uid://cdqgtjb1pw173" path="res://Sprites/Atlantis/tileset1.tres" id="3_bk5qg"]
 [ext_resource type="PackedScene" uid="uid://curaxfesyhabc" path="res://Scenes/player/player.tscn" id="4_iu068"]
@@ -23,7 +23,7 @@ size = Vector2(48, 83)
 size = Vector2(47, 83)
 
 [node name="Main" type="Node2D" unique_id=1740692965]
-script = ExtResource("1_n8oda")
+script = ExtResource("1_041ro")
 
 [node name="Sky" type="TileMapLayer" parent="." unique_id=1470056333]
 z_index = -99

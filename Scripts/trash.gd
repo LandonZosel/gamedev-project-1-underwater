@@ -3,6 +3,7 @@ extends CharacterBody2D
 @onready var Hitbox: CollisionShape2D = $PhysicsHitbox
 
 @export var buoyancy : float = 120
+@export var waterResistance : float = 120
 @export var gravity : float = 60
 var player_in_hitbox : CharacterBody2D = null
 var gravityEnabled : bool = true
@@ -23,6 +24,12 @@ func _physics_process(delta: float) -> void:
 				velocity.y -= buoyancy * delta
 			else:
 				velocity.y += 4 * delta
+			
+			if velocity.x > 0:
+				velocity.x -= waterResistance * delta
+			elif velocity.x < 0:
+				velocity.x -= waterResistance * delta
+			
 		else:
 			velocity.y += gravity * delta
 			
@@ -52,7 +59,8 @@ func _on_area_body_exited(body: Node2D) -> void:
 
 func stop_physics():
 	gravityEnabled = false
-	Hitbox.disabled = true
+	#Hitbox.disabled = true
+	Hitbox.set_deferred("disabled", true)
 
 func start_physics():
 	gravityEnabled = true

@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cavurluy27ph8"]
+
+[ext_resource type="Texture2D" uid="uid://byvsa1ciejw26" path="res://Sprites/Atlantis/Screenshot (285).png" id="1_wy5rh"]
+
+[node name="PauseMenu" type="Control" unique_id=1755693593]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=915402348]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_wy5rh")
+expand_mode = 2
