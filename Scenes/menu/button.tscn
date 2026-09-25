@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://k3xnqhogps28"]
+
+[ext_resource type="Script" uid="uid://q4assl7smk7a" path="res://Scripts/button.gd" id="1_sslvh"]
+
+[node name="Button" type="Button" unique_id=831687700]
+offset_left = -22.0
+offset_top = -16.0
+offset_right = 26.0
+offset_bottom = 15.0
+script = ExtResource("1_sslvh")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://d03f48yok4ls3"]
+
+[ext_resource type="Script" uid="uid://dwupy6ogq3rwd" path="res://Scripts/main.gd" id="1_ufr4i"]
+[ext_resource type="PackedScene" uid="uid://k3xnqhogps28" path="res://Scenes/menu/button.tscn" id="2_uffod"]
+
+[node name="MainMenu" type="Node2D" unique_id=140483028]
+script = ExtResource("1_ufr4i")
+
+[node name="Level1" parent="." unique_id=831687700 instance=ExtResource("2_uffod")]
+offset_left = 40.0
+offset_top = 30.0
+offset_right = 88.0
+offset_bottom = 61.0
+text = "Level 1"
+
+[node name="Level2" parent="." unique_id=1683785639 instance=ExtResource("2_uffod")]
+offset_left = 214.0
+offset_top = 30.0
+offset_right = 276.0
+offset_bottom = 61.0
+text = "Level 2"
+filePath = "res://Scenes/levels/level_2.tscn"
+
+[node name="Level3" parent="." unique_id=882949542 instance=ExtResource("2_uffod")]
+offset_left = 406.0
+offset_top = 30.0
+offset_right = 468.0
+offset_bottom = 61.0
+text = "Level 3"
+filePath = "res://Scenes/levels/level_3.tscn"
+
+[node name="Level4" parent="." unique_id=784062241 instance=ExtResource("2_uffod")]
+offset_left = 523.0
+offset_top = 30.0
+offset_right = 585.0
+offset_bottom = 61.0
+text = "Level 4"
+filePath = "res://Scenes/levels/level_4.tscn"
+
+[node name="Level5" parent="." unique_id=627104681 instance=ExtResource("2_uffod")]
+offset_left = 633.0
+offset_top = 30.0
+offset_right = 695.0
+offset_bottom = 61.0
+text = "Level 5"
+filePath = "res://Scenes/levels/level_5.tscn"

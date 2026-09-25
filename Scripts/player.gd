@@ -102,6 +102,7 @@ func change_held_item(item: CharacterBody2D):
 func set_item(item: CharacterBody2D):
 	held_item = item
 	held_item.stop_physics()
+	
 	var item_name = held_item.name
 	if item_name.begins_with('Bottle'):
 		held_item.reparent(get('HeldBottle'))
