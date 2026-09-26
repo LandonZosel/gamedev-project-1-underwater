@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dp5rs1hrtelkp"]
+
+[ext_resource type="Texture2D" uid="uid://8qlhx7pfjqyv" path="res://Sprites/Custom/Crabs/crab6.png" id="1_6wfvq"]
+[ext_resource type="PackedScene" uid="uid://1ru70fbvimqa" path="res://Scenes/trash/bottle.tscn" id="2_6wfvq"]
+
+[node name="CrabWithBottle" type="Sprite2D" unique_id=37222965]
+texture = ExtResource("1_6wfvq")
+offset = Vector2(0, -0.5)
+
+[node name="Bottle" parent="." unique_id=1070687770 instance=ExtResource("2_6wfvq")]
+position = Vector2(0, -9)
+gravityEnabled = false

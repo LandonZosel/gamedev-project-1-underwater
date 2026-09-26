@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://vjgn785koaed"]
+
+[ext_resource type="Texture2D" uid="uid://8qlhx7pfjqyv" path="res://Sprites/Custom/Crabs/crab6.png" id="1_x88sy"]
+[ext_resource type="PackedScene" uid="uid://be60afwpig4li" path="res://Scenes/trash/can_rings.tscn" id="2_mqpen"]
+
+[node name="CrabWithCanRings" type="Sprite2D" unique_id=37222965]
+texture = ExtResource("1_x88sy")
+offset = Vector2(0, -0.5)
+
+[node name="CanRings" parent="." unique_id=1070687770 groups=["Trash"] instance=ExtResource("2_mqpen")]
+z_index = 1
+position = Vector2(0, -5)
+gravityEnabled = false

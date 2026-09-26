@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://51vvslbvatgv"]
+
+[ext_resource type="Texture2D" uid="uid://8qlhx7pfjqyv" path="res://Sprites/Custom/Crabs/crab6.png" id="1_336id"]
+[ext_resource type="PackedScene" uid="uid://drlm3qhdhs4um" path="res://Scenes/trash/chip_bag.tscn" id="2_336id"]
+
+[node name="CrabWithChipBag" type="Sprite2D" unique_id=37222965]
+texture = ExtResource("1_336id")
+offset = Vector2(0, -0.5)
+
+[node name="ChipBag" parent="." unique_id=1070687770 instance=ExtResource("2_336id")]
+position = Vector2(0, -5)
+gravityEnabled = false

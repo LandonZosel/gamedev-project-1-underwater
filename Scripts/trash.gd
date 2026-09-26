@@ -5,8 +5,9 @@ extends CharacterBody2D
 @export var buoyancy : float = 120
 @export var waterResistance : float = 120
 @export var gravity : float = 60
+@export var gravityEnabled : bool = true
 var player_in_hitbox : CharacterBody2D = null
-var gravityEnabled : bool = true
+
 
 
 # Called when the node enters the scene tree for the first time.
@@ -59,7 +60,6 @@ func _on_area_body_exited(body: Node2D) -> void:
 
 func stop_physics():
 	gravityEnabled = false
-	#Hitbox.disabled = true
 	Hitbox.set_deferred("disabled", true)
 
 func start_physics():

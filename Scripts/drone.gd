@@ -3,6 +3,8 @@ extends CharacterBody2D
 @onready var anim : AnimationPlayer = $AnimationPlayer
 @onready var Trash: Marker2D = $Trash
 
+@export var verticalCycle : bool = false
+@export var horizontalCycle : bool = false
 @export var amplitude_x: float = 125
 @export var frequency_x: float = 0.06
 @export var amplitude_y: float = 15.0
@@ -26,26 +28,52 @@ func _physics_process(delta: float) -> void:
 		
 		if position.y < -200:
 			call_deferred("reset_drone")
-			
+		
+		
 	elif returningToStart:
 		if position.y >= start_pos.y:
 			global_position = start_pos
+			velocity.y = 0
 			elapsed_time = 0
 			returningToStart = false
 	else:
-		elapsed_time += delta
+		movement(delta)
 		
-		var forward_wave: float = sin(elapsed_time * frequency_x * (2.0 * PI)) * amplitude_x
-		var side_wave: float = sin(elapsed_time * frequency_y * (2.0 * PI)) * amplitude_y
-		
-		var forward_vector: Vector2 = transform.x * forward_wave
-		var side_vector: Vector2 = transform.y * side_wave
-		
-		global_position = start_pos + forward_vector + side_vector
 	
 	move_and_slide()
 	
 
+func move_up_and_down(delta: float):
+	elapsed_time += delta
+	
+	var forward_wave: float = sin(elapsed_time * frequency_x * (2.0 * PI)) * amplitude_x
+	var forward_vector: Vector2 = transform.x * forward_wave
+	
+	global_position = start_pos + forward_vector
+
+func move_left_and_right(delta: float):
+	elapsed_time += delta
+	
+	var side_wave: float = sin(elapsed_time * frequency_y * (2.0 * PI)) * amplitude_y
+	var side_vector: Vector2 = transform.y * side_wave
+	
+	global_position = start_pos + side_vector
+
+func movement(delta: float):
+	elapsed_time += delta
+	
+	var vertical_vector : Vector2 = Vector2(0, 0)
+	var horizontal_vector : Vector2 = Vector2(0, 0)
+	
+	if verticalCycle:
+		var vertical_wave: float = sin(elapsed_time * frequency_y * (2.0 * PI)) * amplitude_y
+		vertical_vector = transform.y * vertical_wave
+	
+	if horizontalCycle:
+		var horizontal_wave: float = sin(elapsed_time * frequency_x * (2.0 * PI)) * amplitude_x
+		horizontal_vector = transform.x * horizontal_wave
+	
+	global_position = start_pos + horizontal_vector + vertical_vector
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if not body.is_in_group("Trash"):

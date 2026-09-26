@@ -24,6 +24,8 @@ window/stretch/aspect="expand"
 [global_group]
 
 Trash=""
+Exit=""
+Player=""
 
 [input]
 
