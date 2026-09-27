@@ -63,7 +63,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		if is_on_floor():
 			#uh oh we need to unstuck the player
-			velocity = Vector2(randi_range(10, 100), randi_range(-10, -100))
+			velocity = Vector2(randi_range(-100, 100), randi_range(-10, -100))
 		# not in water, apply gravity with smooth rotation
 		velocity.y += gravity * delta
 		if velocity.length() > 0:
@@ -116,10 +116,8 @@ func set_item(item: CharacterBody2D):
 	elif item_name.begins_with('ChipBag'):
 		held_item.reparent(get('HeldChipBag'))
 	elif item_name.begins_with('Basketball'):
-		print('yup thats a basketball')
 		held_item.reparent(get('HeldBasketball'))
 	else:
-		print('uh oh idk what this is assume basketball')
 		held_item.reparent(get('HeldBasketball'))
 	
 	if held_item.crab:

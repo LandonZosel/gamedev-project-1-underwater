@@ -19,6 +19,10 @@ func _physics_process(delta: float) -> void:
 	if not gravityEnabled:
 		velocity = Vector2(0, 0)
 	
+	if not _in_water() && is_on_floor():
+		#uh oh we need to unstuck the basketball
+		velocity = Vector2(randi_range(-30, 30), randi_range(-10, -30))
+	
 	if not is_on_floor() && gravityEnabled:
 		if _in_water():
 			if velocity.y > 0:
