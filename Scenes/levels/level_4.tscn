@@ -59,7 +59,6 @@ tile_map_data = PackedByteArray("AAAAAAIAAAAOABQAAAAAAAMAAAAQABMAAAAAAAQAAAAHAA0
 tile_set = ExtResource("3_mpacn")
 
 [node name="InvisibleBorder" type="StaticBody2D" parent="Level" unique_id=1898243099]
-visible = false
 position = Vector2(192, -143)
 
 [node name="TopBorder" type="CollisionShape2D" parent="Level/InvisibleBorder" unique_id=1098688057]
@@ -67,11 +66,11 @@ position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_pimxd")
 
 [node name="LeftBorder" type="CollisionShape2D" parent="Level/InvisibleBorder" unique_id=321111986]
-position = Vector2(-168, 40.5)
+position = Vector2(-192, 41)
 shape = SubResource("RectangleShape2D_vs0ra")
 
 [node name="RightBorder" type="CollisionShape2D" parent="Level/InvisibleBorder" unique_id=478982125]
-position = Vector2(168.5, 40.5)
+position = Vector2(192, 41)
 shape = SubResource("RectangleShape2D_bca7a")
 
 [node name="Oil" type="Node2D" parent="." unique_id=1381063578]
@@ -126,7 +125,6 @@ move_speed = 30.0
 position = Vector2(187, -39)
 collision_layer = 8
 verticalCycle = true
-horizontalCycle = true
 
 [node name="Exit" parent="." unique_id=1653840755 instance=ExtResource("11_t7tm8")]
 position = Vector2(0, 768)
@@ -139,13 +137,13 @@ collision_layer = 2
 collision_mask = 1
 nextLevelPath = "res://Scenes/levels/level_5.tscn"
 
-[node name="PauseMenu" parent="." unique_id=1103245057 instance=ExtResource("10_tvl6r")]
-visible = false
-
 [node name="Sponge" parent="." unique_id=68904741 instance=ExtResource("10_fqbfr")]
-position = Vector2(672, 630)
+position = Vector2(672, 633)
 gravityEnabled = false
 oilCount = 6
+
+[node name="PauseMenu" parent="." unique_id=1103245057 instance=ExtResource("10_tvl6r")]
+visible = false
 
 [connection signal="child_exiting_tree" from="Oil" to="Sponge" method="_on_oil_child_exiting_tree"]
 [connection signal="on_trash_deleted" from="Drone" to="Exit" method="_on_drone_on_trash_deleted"]

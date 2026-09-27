@@ -8,11 +8,8 @@ extends CharacterBody2D
 @export var gravity : float = 60
 @export var gravityEnabled : bool = true
 @export var throwForce : float = 80
-var player_in_hitbox : CharacterBody2D = null
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass
+var player_in_hitbox : CharacterBody2D = null
 
 func _physics_process(delta: float) -> void:
 	 #handle gravity
@@ -52,10 +49,6 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
-
 func _in_water() -> bool:
 	return position.y >= 0
 
@@ -78,4 +71,3 @@ func start_physics():
 	gravityEnabled = true
 	velocity = Vector2.RIGHT.rotated(rotation) * throwForce
 	Hitbox.set_deferred("disabled", false)
-	

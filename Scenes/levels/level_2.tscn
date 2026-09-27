@@ -66,11 +66,11 @@ position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_pimxd")
 
 [node name="LeftBorder" type="CollisionShape2D" parent="Level/InvisibleBorder" unique_id=321111986]
-position = Vector2(-168, 40.5)
+position = Vector2(-192, 41)
 shape = SubResource("RectangleShape2D_vs0ra")
 
 [node name="RightBorder" type="CollisionShape2D" parent="Level/InvisibleBorder" unique_id=478982125]
-position = Vector2(168.5, 40.5)
+position = Vector2(192, 41)
 shape = SubResource("RectangleShape2D_bca7a")
 
 [node name="Crabs" type="Node2D" parent="." unique_id=1381063578]

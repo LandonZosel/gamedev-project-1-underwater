@@ -8,10 +8,6 @@ extends Sprite2D
 @export var move_speed : float = 10
 @export var trashHeld : bool = true
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass
-
 func _physics_process(delta: float) -> void:
 	if not trashHeld:
 		return
@@ -23,7 +19,6 @@ func _physics_process(delta: float) -> void:
 		else:
 			target_pos = start_pos
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	_manage_animation()
 

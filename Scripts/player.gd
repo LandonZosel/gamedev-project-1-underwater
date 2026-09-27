@@ -8,19 +8,14 @@ extends CharacterBody2D
 @onready var HeldSponge: Marker2D = $HeldSponge
 @onready var cooldown_timer: Timer = $CooldownTimer
 
-@export var move_speed : float = 100
-@export var acceleration : float = 50
-@export var braking : float = 20
 @export var gravity : float = 120
-@export var jump_force : float = 200
+@export var jump_force : float = 1.25
 @export var rotation_rate : float = 4.5 #og 5
 @export var speed: float = 120
 @export var rotation_speed: float = 50
 @export var nextLevelPath : String = 'res://Scenes/levels/level_1.tscn'
 @export var firstLevel : bool = false
 
-var move_input_x : float
-var move_input_y : float
 var rotation_direction : float
 var move_direction : float
 var held_item : CharacterBody2D = null
@@ -29,9 +24,6 @@ var movementDisabled : bool = true
 var died : bool = false
 var jumping : bool = false
 var baseSpeed : float
-
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
 
 func _ready() -> void:
 	baseSpeed = speed
@@ -48,7 +40,7 @@ func _physics_process(delta: float) -> void:
 	
 	if _in_water():
 		jumping = false
-		# new movement
+		#new movement
 		rotation_direction = Input.get_axis("move_left", "move_right")
 		rotation += rotation_direction * rotation_rate * delta
 		if rotation_direction != 0:
@@ -62,13 +54,19 @@ func _physics_process(delta: float) -> void:
 			velocity = velocity.move_toward(Vector2.ZERO, speed * delta * 5)
 	elif not jumping:
 		jumping = true
-		velocity *= 1.25
-		#velocity = velocity.normalized() * 170
+		velocity *= jump_force
 	else:
 		if is_on_floor():
 			#uh oh we need to unstuck the player
-			velocity = Vector2(randi_range(-100, 100), randi_range(-10, -100))
-		# not in water, apply gravity with smooth rotation
+			if (global_position.x < 192 && global_position.x > -64) || (global_position.x < -690):
+				#veer right
+				velocity = Vector2(randi_range(10, 100), randi_range(-10, -100))
+			elif (global_position.x > 192) || (global_position.x > -690 && global_position.x < -450):
+				#veer left 
+				velocity = Vector2(randi_range(-100, -10), randi_range(-10, -100))
+			else:
+				velocity = Vector2(randi_range(-100, 100), randi_range(-10, -100))
+		#not in water, apply gravity with smooth rotation
 		velocity.y += gravity * delta
 		if velocity.length() > 0:
 			var target_angle : float = velocity.angle()

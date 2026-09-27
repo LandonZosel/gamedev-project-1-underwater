@@ -13,13 +13,12 @@ func _ready() -> void:
 	exit = get_tree().get_first_node_in_group('Exit')
 	normalZoom = zoom
 
-
 func _process(delta: float) -> void:
 	if exit.openingExit:
 		global_position = global_position.lerp(exit.global_position, 7.0 * delta)
 		if zoom != normalZoom:
 			zoom = zoom.lerp(normalZoom, 2.5 * delta)
-	elif player.global_position.y < 50 && player.global_position.x < 350 && player.global_position.x > 0:
+	elif player.global_position.y < 50 && player.global_position.x < 384 && player.global_position.x > 0:
 		#handle position
 		if not global_position == dronePosition:
 			global_position = global_position.lerp(dronePosition, 2.5 * delta)

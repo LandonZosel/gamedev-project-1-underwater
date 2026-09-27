@@ -15,10 +15,6 @@ var player_in_hitbox : CharacterBody2D = null
 var filling : bool = false
 var filled : bool = false
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass
-
 func _physics_process(delta: float) -> void:
 	 #handle gravity
 	if not gravityEnabled:
@@ -46,19 +42,6 @@ func _physics_process(delta: float) -> void:
 		velocity.x = 0
 	move_and_slide()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
-	#manage_animations()
-#
-#func manage_animations():
-	#if filling:
-		#return
-	#if not filled:
-		#anim.play('idle')
-	#else:
-		#anim.play('idle_filled')
-
 func _in_water() -> bool:
 	return position.y >= 0
 
@@ -82,7 +65,6 @@ func start_physics():
 	area.beingHeld = false
 	velocity.y = 10
 	Hitbox.set_deferred("disabled", false)
-	
 
 func set_filled():
 	filling = false

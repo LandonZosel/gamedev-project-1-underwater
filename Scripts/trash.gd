@@ -41,10 +41,6 @@ func _physics_process(delta: float) -> void:
 		velocity.x = 0
 	move_and_slide()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
-
 func _in_water() -> bool:
 	return position.y >= 0
 
