@@ -98,6 +98,7 @@ collision_layer = 8
 
 [node name="Exit" parent="." unique_id=1653840755 instance=ExtResource("12_4h34a")]
 position = Vector2(288, 160)
+trashCount = 1
 
 [node name="Player" parent="." unique_id=1837357171 groups=["Player"] instance=ExtResource("4_iu068")]
 z_index = 69

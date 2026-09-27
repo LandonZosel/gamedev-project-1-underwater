@@ -125,6 +125,7 @@ verticalCycle = true
 
 [node name="Exit" parent="." unique_id=1653840755 instance=ExtResource("11_kb2w7")]
 position = Vector2(1132, 160)
+trashCount = 2
 
 [node name="Player" parent="." unique_id=1837357171 groups=["Player"] instance=ExtResource("4_l8nyl")]
 z_index = 69

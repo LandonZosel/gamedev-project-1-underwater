@@ -216,6 +216,7 @@ horizontalCycle = true
 
 [node name="Exit" parent="." unique_id=1653840755 instance=ExtResource("11_5ired")]
 position = Vector2(192, 128)
+trashCount = 4
 
 [node name="PauseMenu" parent="." unique_id=1103245057 instance=ExtResource("17_4f0fj")]
 visible = false

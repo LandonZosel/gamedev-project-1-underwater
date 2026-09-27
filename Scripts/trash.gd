@@ -35,6 +35,17 @@ func _physics_process(delta: float) -> void:
 			velocity.y += gravity * delta
 			
 	
+	if is_on_floor() && not _in_water():
+		#uh oh we need to unstuck the trash
+		if (global_position.x < 192 && global_position.x > -64) || (global_position.x < -690):
+			#veer right
+			velocity = Vector2(randi_range(10, 100), randi_range(-10, -100))
+		elif (global_position.x > 192) || (global_position.x > -690 && global_position.x < -450):
+			#veer left 
+			velocity = Vector2(randi_range(-100, -10), randi_range(-10, -100))
+		else:
+			velocity = Vector2(randi_range(-100, 100), randi_range(-10, -100))
+	
 	#if trash randomly gets flung fast, stop movement
 	if velocity.y > 150 || velocity.x > 150 || velocity.x < -150 || velocity.y < -150:
 		velocity.y = 0
@@ -56,6 +67,7 @@ func _on_area_body_exited(body: Node2D) -> void:
 
 func stop_physics():
 	gravityEnabled = false
+	velocity.x = 0
 	Hitbox.set_deferred("disabled", true)
 
 func start_physics():
