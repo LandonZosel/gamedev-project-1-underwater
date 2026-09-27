@@ -147,22 +147,6 @@ move_direction = Vector2(-20, 0)
 [node name="CrabWithChipBag" parent="Crabs" unique_id=179334656 instance=ExtResource("9_bfs5l")]
 position = Vector2(424, 171)
 
-[node name="Player" parent="." unique_id=1837357171 groups=["Player"] instance=ExtResource("4_m35j8")]
-z_index = 69
-position = Vector2(49, 128)
-collision_layer = 2
-collision_mask = 1
-nextLevelPath = "res://Scenes/levels/level_4.tscn"
-
-[node name="Drone" parent="." unique_id=158295161 instance=ExtResource("7_c7fh8")]
-position = Vector2(192, -39)
-collision_layer = 8
-horizontalCycle = true
-
-[node name="Exit" parent="." unique_id=1653840755 instance=ExtResource("11_5ired")]
-position = Vector2(192, 128)
-trashCount = 4.0
-
 [node name="Basketball" type="Node2D" parent="." unique_id=1471473698]
 
 [node name="Score" type="Label" parent="Basketball" unique_id=1870320109]
@@ -204,7 +188,23 @@ position = Vector2(-818, -32)
 texture = ExtResource("16_4f0fj")
 flip_h = true
 
-[connection signal="on_trash_deleted" from="Drone" to="Exit" method="_on_drone_on_trash_deleted"]
-[connection signal="body_entered" from="Exit" to="Exit" method="_on_body_entered"]
+[node name="Player" parent="." unique_id=1837357171 groups=["Player"] instance=ExtResource("4_m35j8")]
+z_index = 69
+position = Vector2(49, 128)
+collision_layer = 2
+collision_mask = 1
+nextLevelPath = "res://Scenes/levels/level_4.tscn"
+
+[node name="Drone" parent="." unique_id=158295161 instance=ExtResource("7_c7fh8")]
+position = Vector2(192, -39)
+collision_layer = 8
+horizontalCycle = true
+
+[node name="Exit" parent="." unique_id=1653840755 instance=ExtResource("11_5ired")]
+position = Vector2(192, 128)
+trashCount = 4.0
+
 [connection signal="body_entered" from="Basketball/BasketballNetRight" to="Basketball/Score" method="_on_basketball_net_right_body_entered"]
 [connection signal="body_entered" from="Basketball/BasketballNetLeft" to="Basketball/Score" method="_on_basketball_net_left_body_entered"]
+[connection signal="on_trash_deleted" from="Drone" to="Exit" method="_on_drone_on_trash_deleted"]
+[connection signal="body_entered" from="Exit" to="Exit" method="_on_body_entered"]
