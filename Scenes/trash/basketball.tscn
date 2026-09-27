@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://dx65atkhc62fa"]
+
+[ext_resource type="Script" uid="uid://cqpdvdjhulokp" path="res://Scripts/basketball.gd" id="1_ihdan"]
+[ext_resource type="Texture2D" uid="uid://dud2h51odkn25" path="res://Sprites/Custom/Basketball/basketball.png" id="2_dtg11"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rrho5"]
+radius = 6.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qvato"]
+radius = 6.0
+
+[node name="Basketball" type="CharacterBody2D" unique_id=1070687770 groups=["Basketball"]]
+z_index = -15
+collision_layer = 128
+collision_mask = 69
+script = ExtResource("1_ihdan")
+
+[node name="Area" type="Area2D" parent="." unique_id=119585714]
+collision_layer = 4
+collision_mask = 10
+
+[node name="Sprite" type="Sprite2D" parent="Area" unique_id=1210384797]
+texture = ExtResource("2_dtg11")
+
+[node name="AreaHitbox" type="CollisionShape2D" parent="Area" unique_id=146897166]
+shape = SubResource("CircleShape2D_rrho5")
+
+[node name="PhysicsHitbox" type="CollisionShape2D" parent="." unique_id=1032702556]
+shape = SubResource("CircleShape2D_qvato")
+
+[connection signal="body_entered" from="Area" to="." method="_on_area_body_entered"]
+[connection signal="body_exited" from="Area" to="." method="_on_area_body_exited"]

@@ -26,6 +26,8 @@ window/stretch/aspect="expand"
 Trash=""
 Exit=""
 Player=""
+Crab=""
+Basketball=""
 
 [input]
 
@@ -72,6 +74,8 @@ escape={
 2d_physics/layer_4="Drone"
 2d_physics/layer_5="Mine"
 2d_physics/layer_6="Exit"
+2d_physics/layer_7="Basketball Net"
+2d_physics/layer_8="Basketball"
 
 [physics]
 

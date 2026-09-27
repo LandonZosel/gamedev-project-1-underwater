@@ -1,13 +1,145 @@
 [gd_scene format=3 uid="uid://vjgn785koaed"]
 
-[ext_resource type="Texture2D" uid="uid://8qlhx7pfjqyv" path="res://Sprites/Custom/Crabs/crab6.png" id="1_x88sy"]
+[ext_resource type="Texture2D" uid="uid://bv27m6xg5j7tq" path="res://Sprites/Custom/Crabs/crab_holdup.png" id="1_x88sy"]
+[ext_resource type="Script" uid="uid://bdsxsby6lhrna" path="res://Scripts/crab.gd" id="2_7of2f"]
 [ext_resource type="PackedScene" uid="uid://be60afwpig4li" path="res://Scenes/trash/can_rings.tscn" id="2_mqpen"]
+[ext_resource type="Texture2D" uid="uid://dk1arfsjblgu7" path="res://Sprites/Custom/Crabs/crab_holddown.png" id="4_ritq7"]
+[ext_resource type="Texture2D" uid="uid://jixq47cmbh3b" path="res://Sprites/Custom/Crabs/crab_holdup_1.png" id="4_x2c12"]
+[ext_resource type="Texture2D" uid="uid://bqp8xe2rxfss8" path="res://Sprites/Custom/Crabs/crab_half_and_half_up_1.png" id="5_dspmq"]
+[ext_resource type="Texture2D" uid="uid://g5p4i4a4ue6i" path="res://Sprites/Custom/Crabs/crab_holdup_2.png" id="5_ritq7"]
+[ext_resource type="Texture2D" uid="uid://3rn30o4k8b2p" path="res://Sprites/Custom/Crabs/crab_out.png" id="6_dspmq"]
+[ext_resource type="Texture2D" uid="uid://nbm6nf8y2w42" path="res://Sprites/Custom/Crabs/crab_half_and_half_up_2.png" id="6_rftye"]
+[ext_resource type="Texture2D" uid="uid://bv1t57xsg3woy" path="res://Sprites/Custom/Crabs/crab_out_up.png" id="7_rftye"]
 
-[node name="CrabWithCanRings" type="Sprite2D" unique_id=37222965]
+[sub_resource type="Animation" id="Animation_tbt0g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_x88sy")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -0.5)]
+}
+
+[sub_resource type="Animation" id="Animation_cklvu"]
+resource_name = "dance"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2.25, 2.5, 2.75, 3.25, 3.5, 3.75, 4, 4.25, 4.5, 4.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("4_ritq7"), ExtResource("1_x88sy"), ExtResource("4_ritq7"), ExtResource("1_x88sy"), ExtResource("4_ritq7"), ExtResource("1_x88sy"), ExtResource("5_dspmq"), ExtResource("6_rftye"), ExtResource("5_dspmq"), ExtResource("6_rftye"), ExtResource("5_dspmq"), ExtResource("6_rftye"), ExtResource("1_x88sy"), ExtResource("6_dspmq"), ExtResource("7_rftye"), ExtResource("6_dspmq"), ExtResource("7_rftye"), ExtResource("6_dspmq")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.5, 2, 3, 3.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -0.5), Vector2(5, -0.5), Vector2(-5, -0.5), Vector2(0, -0.5)]
+}
+
+[sub_resource type="Animation" id="Animation_mbsno"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_x88sy")]
+}
+
+[sub_resource type="Animation" id="Animation_nf12e"]
+resource_name = "walk"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("4_x2c12"), ExtResource("5_ritq7")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cklvu"]
+_data = {
+&"RESET": SubResource("Animation_tbt0g"),
+&"dance": SubResource("Animation_cklvu"),
+&"idle": SubResource("Animation_mbsno"),
+&"walk": SubResource("Animation_nf12e")
+}
+
+[node name="CrabWithCanRings" type="Sprite2D" unique_id=37222965 groups=["Crab"]]
 texture = ExtResource("1_x88sy")
 offset = Vector2(0, -0.5)
+script = ExtResource("2_7of2f")
 
 [node name="CanRings" parent="." unique_id=1070687770 groups=["Trash"] instance=ExtResource("2_mqpen")]
 z_index = 1
-position = Vector2(0, -5)
+position = Vector2(0, -2)
 gravityEnabled = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1675021996]
+libraries/ = SubResource("AnimationLibrary_cklvu")

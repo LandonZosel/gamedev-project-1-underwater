@@ -1,27 +1,27 @@
 extends CharacterBody2D
 
 @onready var Hitbox: CollisionShape2D = $PhysicsHitbox
-@onready var crab : Sprite2D
+@onready var crab : Sprite2D = null
 
-@export var buoyancy : float = 120
+@export var buoyancy : float = 160
 @export var waterResistance : float = 120
 @export var gravity : float = 60
 @export var gravityEnabled : bool = true
+@export var throwForce : float = 80
 var player_in_hitbox : CharacterBody2D = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if get_parent().is_in_group('Crab'):
-		crab = get_parent()
+	pass
 
 func _physics_process(delta: float) -> void:
 	 #handle gravity
 	if not gravityEnabled:
-		velocity.y = 0
+		velocity = Vector2(0, 0)
 	
 	if not is_on_floor() && gravityEnabled:
 		if _in_water():
-			if velocity.y > 20:
+			if velocity.y > 0:
 				velocity.y -= buoyancy * delta
 			else:
 				velocity.y += 4 * delta
@@ -35,10 +35,17 @@ func _physics_process(delta: float) -> void:
 			velocity.y += gravity * delta
 			
 	
-	#if trash randomly gets flung fast, stop movement
-	if velocity.y > 100 || velocity.x > 100:
+	var collision_info = move_and_collide(velocity * delta)
+	
+	if collision_info:
+		velocity = velocity.bounce(collision_info.get_normal())
+		velocity *= 0.2
+	
+	#if basketball randomly gets flung fast, stop it
+	if velocity.y > 150 || velocity.x > 150:
 		velocity.y = 0
 		velocity.x = 0
+	
 	move_and_slide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -60,10 +67,11 @@ func _on_area_body_exited(body: Node2D) -> void:
 
 func stop_physics():
 	gravityEnabled = false
+	velocity = Vector2(0, 0)
 	Hitbox.set_deferred("disabled", true)
 
 func start_physics():
 	gravityEnabled = true
-	velocity.y = 10
+	velocity = Vector2.RIGHT.rotated(rotation) * throwForce
 	Hitbox.set_deferred("disabled", false)
 	

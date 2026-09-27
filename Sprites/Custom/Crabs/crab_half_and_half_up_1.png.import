@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://j5o5bfctxuia"
-path="res://.godot/imported/crab8.png-ee0365e39154034c7b323c7183108280.ctex"
+uid="uid://bqp8xe2rxfss8"
+path="res://.godot/imported/crab_half_and_half_up_1.png-b0ce9caf4c8fcc61802023b573f630d7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Custom/Crabs/crab8.png"
-dest_files=["res://.godot/imported/crab8.png-ee0365e39154034c7b323c7183108280.ctex"]
+source_file="res://Sprites/Custom/Crabs/crab_half_and_half_up_1.png"
+dest_files=["res://.godot/imported/crab_half_and_half_up_1.png-b0ce9caf4c8fcc61802023b573f630d7.ctex"]
 
 [params]
 

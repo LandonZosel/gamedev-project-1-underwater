@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ec1ftcepv2h4"
-path="res://.godot/imported/crab4.png-7d97a8becceb45af15322f3caa89e824.ctex"
+uid="uid://bv27m6xg5j7tq"
+path="res://.godot/imported/crab_holdup.png-859d49c140eb5041089330590f3bce4c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Custom/Crabs/crab4.png"
-dest_files=["res://.godot/imported/crab4.png-7d97a8becceb45af15322f3caa89e824.ctex"]
+source_file="res://Sprites/Custom/Crabs/crab_holdup.png"
+dest_files=["res://.godot/imported/crab_holdup.png-859d49c140eb5041089330590f3bce4c.ctex"]
 
 [params]
 

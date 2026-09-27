@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://b2xjgwmgh066j"]
+
+[ext_resource type="Texture2D" uid="uid://calccxut1ves8" path="res://Sprites/Custom/Basketball/basketball_net_only.png" id="2_iqqfp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d66k7"]
+size = Vector2(20, 2.25)
+
+[node name="BasketballNetLeft" type="Area2D" unique_id=1255786166]
+z_index = 29
+collision_layer = 64
+collision_mask = 128
+
+[node name="Net" type="Sprite2D" parent="." unique_id=1752143041]
+z_index = -10
+texture = ExtResource("2_iqqfp")
+flip_h = true
+
+[node name="ScoreArea" type="CollisionShape2D" parent="." unique_id=1820444264]
+position = Vector2(-2, -5)
+shape = SubResource("RectangleShape2D_d66k7")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3rn30o4k8b2p"
-path="res://.godot/imported/crab3.png-b2ecfa751d012d1f9e8e4f73effb3792.ctex"
+uid="uid://bw8xeqeeixl8o"
+path="res://.godot/imported/basketball_net.png-5ea44e6b84b48a514202a06436594625.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Custom/Crabs/crab3.png"
-dest_files=["res://.godot/imported/crab3.png-b2ecfa751d012d1f9e8e4f73effb3792.ctex"]
+source_file="res://Sprites/Custom/Basketball/basketball_net.png"
+dest_files=["res://.godot/imported/basketball_net.png-5ea44e6b84b48a514202a06436594625.ctex"]
 
 [params]
 

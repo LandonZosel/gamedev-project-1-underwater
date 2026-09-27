@@ -86,7 +86,7 @@ shape = SubResource("RectangleShape2D_bca7a")
 [node name="Crabs" type="Node2D" parent="." unique_id=1399033848]
 
 [node name="CrabWithCanRings" parent="Crabs" unique_id=37222965 instance=ExtResource("11_sskdo")]
-position = Vector2(192, 125)
+position = Vector2(192, 123)
 
 [node name="Drone" parent="." unique_id=158295161 instance=ExtResource("8_n3ge2")]
 position = Vector2(192, -40)

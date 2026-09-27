@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var HeldBottle: Marker2D = $HeldBottle
 @onready var HeldChipBag: Marker2D = $HeldChipBag
 @onready var HeldCanRings: Marker2D = $HeldCanRings
+@onready var HeldBasketball: Marker2D = $HeldBasketball
 @onready var cooldown_timer: Timer = $CooldownTimer
 
 @export var move_speed : float = 100
@@ -13,7 +14,7 @@ extends CharacterBody2D
 @export var jump_force : float = 200
 @export var rotation_rate : float = 4.5 #og 5
 @export var speed: float = 120
-@export var rotation_speed: float = 100
+@export var rotation_speed: float = 50
 @export var nextLevelPath : String = 'res://Scenes/levels/level_1.tscn'
 @export var firstLevel : bool = false
 
@@ -23,7 +24,7 @@ var rotation_direction : float
 var move_direction : float
 var held_item : CharacterBody2D = null
 var current_area : CharacterBody2D = null
-var entering_stage : bool = true
+var movementDisabled : bool = true
 var died : bool = false
 var jumping : bool = false
 
@@ -38,7 +39,7 @@ func _ready() -> void:
 		anim.play("enter_stage")
 
 func _physics_process(delta: float) -> void:
-	if entering_stage:
+	if movementDisabled:
 		return
 	
 	if _in_water():
@@ -60,6 +61,9 @@ func _physics_process(delta: float) -> void:
 		velocity *= 1.25
 		#velocity = velocity.normalized() * 170
 	else:
+		if is_on_floor():
+			#uh oh we need to unstuck the player
+			velocity = Vector2(randi_range(10, 100), randi_range(-10, -100))
 		# not in water, apply gravity with smooth rotation
 		velocity.y += gravity * delta
 		if velocity.length() > 0:
@@ -75,7 +79,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 func _process(_delta):
-	if entering_stage:
+	if movementDisabled:
 		return
 	_manage_animation()
 
@@ -111,8 +115,15 @@ func set_item(item: CharacterBody2D):
 		held_item.reparent(get('HeldCanRings'))
 	elif item_name.begins_with('ChipBag'):
 		held_item.reparent(get('HeldChipBag'))
+	elif item_name.begins_with('Basketball'):
+		print('yup thats a basketball')
+		held_item.reparent(get('HeldBasketball'))
 	else:
-		held_item.reparent(get('HeldCanRings'))
+		print('uh oh idk what this is assume basketball')
+		held_item.reparent(get('HeldBasketball'))
+	
+	if held_item.crab:
+		held_item.crab.trashHeld = false
 	
 	held_item.position = Vector2.ZERO
 	held_item.rotation = 0
@@ -124,9 +135,16 @@ func get_rid_of_held_item():
 	held_item.reparent(get_tree().current_scene)
 	held_item.start_physics()
 	held_item = null
-	
-func enter_stage():
-	entering_stage = false
+
+func kill_player():
+	#play spin death animation
+	disable_movement()
+	died = true
+	anim.play('exit_stage')
+
+func start_exit():
+	disable_movement()
+	anim.play('exit_stage') #triggers exit_stage after animation finishes
 
 func exit_stage():
 	if died:
@@ -135,12 +153,8 @@ func exit_stage():
 	else:
 		get_tree().call_deferred("change_scene_to_file", nextLevelPath)
 
-func start_exit():
-	entering_stage = true
-	anim.play('exit_stage')
+func disable_movement():
+	movementDisabled = true
 
-func kill_player():
-	#play spin death animation
-	entering_stage = true
-	died = true
-	anim.play('exit_stage')
+func enable_movement():
+	movementDisabled = false

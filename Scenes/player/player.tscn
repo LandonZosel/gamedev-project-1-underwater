@@ -125,7 +125,7 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
-"method": &"enter_stage"
+"method": &"enable_movement"
 }]
 }
 
@@ -166,7 +166,7 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
-"method": &"enter_stage"
+"method": &"enable_movement"
 }]
 }
 
@@ -328,3 +328,7 @@ rotation = 2.7593656
 z_index = -1
 position = Vector2(17, 3.0000007)
 rotation = 0.6457718
+
+[node name="HeldBasketball" type="Marker2D" parent="." unique_id=1938156456]
+z_index = -1
+position = Vector2(16, 0)
