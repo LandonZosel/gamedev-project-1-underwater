@@ -4,7 +4,7 @@ extends Area2D
 @onready var player : CharacterBody2D
 
 @export var rotation_speed : float = 5
-@export var trashCount : float = 3
+@export var trashCount : int = 3
 
 var openingExit : bool = false
 var exitOpen : bool = false

@@ -1,0 +1,129 @@
+[gd_scene format=3 uid="uid://dsdbevltpqqjc"]
+
+[ext_resource type="Script" uid="uid://d3sodq3eiqm82" path="res://Scripts/sponge.gd" id="1_f8hdj"]
+[ext_resource type="Texture2D" uid="uid://xrpe0c2arhxs" path="res://Sprites/Custom/Trash/sponge_2.png" id="1_sk7wl"]
+[ext_resource type="Script" uid="uid://bo5qo6od8jpm5" path="res://Scripts/sponge_area.gd" id="2_dpic7"]
+[ext_resource type="Texture2D" uid="uid://24atwirncdrp" path="res://Sprites/Custom/Trash/sponge_fill_1.png" id="4_vygie"]
+[ext_resource type="Texture2D" uid="uid://b71oqep2fvgi3" path="res://Sprites/Custom/Trash/sponge_fill_2.png" id="5_qby5r"]
+[ext_resource type="Texture2D" uid="uid://cnymgsopcw1ft" path="res://Sprites/Custom/Trash/sponge_fill_3.png" id="6_xvi81"]
+[ext_resource type="Texture2D" uid="uid://ch3auuupenmbk" path="res://Sprites/Custom/Trash/sponge_fill_4.png" id="7_v8nxv"]
+[ext_resource type="Texture2D" uid="uid://drfmhxqnjrhxa" path="res://Sprites/Custom/Trash/sponge_fill_5.png" id="8_6swui"]
+[ext_resource type="Texture2D" uid="uid://qh536t3iekut" path="res://Sprites/Custom/Trash/sponge_filled.png" id="9_mho3i"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dpic7"]
+radius = 3.5
+height = 16.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l010x"]
+radius = 2.5
+height = 12.0
+
+[sub_resource type="Animation" id="Animation_v2yts"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Area/Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_sk7wl")]
+}
+
+[sub_resource type="Animation" id="Animation_w5bft"]
+resource_name = "filled"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Area/Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_sk7wl"), ExtResource("4_vygie"), ExtResource("5_qby5r"), ExtResource("6_xvi81"), ExtResource("7_v8nxv"), ExtResource("8_6swui"), ExtResource("9_mho3i")]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"set_filled"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_7dpsj"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Area/Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_sk7wl")]
+}
+
+[sub_resource type="Animation" id="Animation_2fahv"]
+resource_name = "idle_filled"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Area/Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("9_mho3i")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tpp5q"]
+_data = {
+&"RESET": SubResource("Animation_v2yts"),
+&"fill": SubResource("Animation_w5bft"),
+&"idle": SubResource("Animation_7dpsj"),
+&"idle_filled": SubResource("Animation_2fahv")
+}
+
+[node name="Sponge" type="CharacterBody2D" unique_id=68904741 groups=["Sponge", "Trash"]]
+collision_layer = 4
+collision_mask = 5
+script = ExtResource("1_f8hdj")
+
+[node name="Area" type="Area2D" parent="." unique_id=1450961531 groups=["Sponge"]]
+collision_layer = 4
+collision_mask = 266
+script = ExtResource("2_dpic7")
+
+[node name="Sprite" type="Sprite2D" parent="Area" unique_id=1119246829]
+texture = ExtResource("1_sk7wl")
+
+[node name="AreaHitbox" type="CollisionShape2D" parent="Area" unique_id=685320563]
+rotation = 0.32637656
+shape = SubResource("CapsuleShape2D_dpic7")
+
+[node name="PhysicsHitbox" type="CollisionShape2D" parent="." unique_id=905709883]
+rotation = 0.32637656
+shape = SubResource("CapsuleShape2D_l010x")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1912200441]
+libraries/ = SubResource("AnimationLibrary_tpp5q")
+
+[connection signal="body_entered" from="Area" to="." method="_on_area_body_entered"]
+[connection signal="body_exited" from="Area" to="." method="_on_area_body_exited"]

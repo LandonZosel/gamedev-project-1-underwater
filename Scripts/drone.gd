@@ -78,8 +78,14 @@ func movement(delta: float):
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if not body.is_in_group("Trash"):
 		return
+	
 	if not body.gravityEnabled:
 		return
+	
+	if body.is_in_group('Sponge'):
+		if body.filled != true:
+			return
+	
 	collect_trash(body)
 
 func collect_trash(body: Node2D):

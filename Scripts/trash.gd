@@ -36,7 +36,7 @@ func _physics_process(delta: float) -> void:
 			
 	
 	#if trash randomly gets flung fast, stop movement
-	if velocity.y > 100 || velocity.x > 100:
+	if velocity.y > 150 || velocity.x > 150 || velocity.x < -150 || velocity.y < -150:
 		velocity.y = 0
 		velocity.x = 0
 	move_and_slide()

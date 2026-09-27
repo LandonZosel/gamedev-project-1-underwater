@@ -1,6 +1,5 @@
 [gd_scene format=4 uid="uid://coq3cdwlbfmqy"]
 
-[ext_resource type="Script" uid="uid://dn1vhbapjcgij" path="res://Scripts/level.gd" id="1_1qnut"]
 [ext_resource type="TileSet" uid="uid://cxlnowjnoqagq" path="res://Sprites/Atlantis/tileset3.tres" id="2_dlr6t"]
 [ext_resource type="TileSet" uid="uid://cdqgtjb1pw173" path="res://Sprites/Atlantis/tileset1.tres" id="3_bfs5l"]
 [ext_resource type="PackedScene" uid="uid://curaxfesyhabc" path="res://Scenes/player/player.tscn" id="4_m35j8"]
@@ -13,10 +12,11 @@
 [ext_resource type="PackedScene" uid="uid://dquwuw13rva2e" path="res://Scenes/key_level_assets/exit.tscn" id="11_5ired"]
 [ext_resource type="Script" uid="uid://p4hvg61c5yl6" path="res://Scripts/score.gd" id="13_3s0gs"]
 [ext_resource type="Script" uid="uid://pcvxy6ugjyxr" path="res://Scripts/camera.gd" id="13_dlr6t"]
-[ext_resource type="PackedScene" uid="uid://dx65atkhc62fa" path="res://Scenes/trash/basketball.tscn" id="14_bfs5l"]
+[ext_resource type="PackedScene" uid="uid://dx65atkhc62fa" path="res://Scenes/basketball/basketball.tscn" id="14_bfs5l"]
 [ext_resource type="PackedScene" uid="uid://dx4clh1w5bgm2" path="res://Scenes/basketball/basketball_net_right.tscn" id="14_m35j8"]
 [ext_resource type="PackedScene" uid="uid://b2xjgwmgh066j" path="res://Scenes/basketball/basketball_net_left.tscn" id="15_m35j8"]
 [ext_resource type="Texture2D" uid="uid://clo7kbdvhe6b" path="res://Sprites/Custom/Basketball/basketball_backboard_only.png" id="16_4f0fj"]
+[ext_resource type="PackedScene" uid="uid://cavurluy27ph8" path="res://Scenes/menus/pause_menu.tscn" id="17_4f0fj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pimxd"]
 size = Vector2(384, 30)
@@ -31,10 +31,9 @@ size = Vector2(47, 166)
 shadow_color = Color(0, 0, 0, 1)
 
 [node name="Level3" type="Node2D" unique_id=1740692965]
-script = ExtResource("1_1qnut")
 
 [node name="Camera" type="Camera2D" parent="." unique_id=1157083128]
-position = Vector2(49, 128)
+position = Vector2(-40, 140)
 zoom = Vector2(4, 4)
 limit_left = -880
 limit_top = -145
@@ -132,6 +131,16 @@ position = Vector2(24, 240)
 move_direction = Vector2(0, 10)
 move_speed = 3.8
 
+[node name="Mine8" parent="Mines" unique_id=1859168264 instance=ExtResource("5_3s0gs")]
+position = Vector2(214, 450)
+move_direction = Vector2(183, 0)
+move_speed = 20.0
+
+[node name="Mine9" parent="Mines" unique_id=1719405575 instance=ExtResource("5_3s0gs")]
+position = Vector2(585, 255)
+move_direction = Vector2(0, -100)
+move_speed = 20.0
+
 [node name="Crabs" type="Node2D" parent="." unique_id=1587900962 groups=["Basketball"]]
 
 [node name="StuckCrab" parent="Crabs" unique_id=37222965 instance=ExtResource("10_0ck02")]
@@ -190,7 +199,7 @@ flip_h = true
 
 [node name="Player" parent="." unique_id=1837357171 groups=["Player"] instance=ExtResource("4_m35j8")]
 z_index = 69
-position = Vector2(49, 128)
+position = Vector2(-40, 140)
 collision_layer = 2
 collision_mask = 1
 nextLevelPath = "res://Scenes/levels/level_4.tscn"
@@ -203,6 +212,9 @@ horizontalCycle = true
 [node name="Exit" parent="." unique_id=1653840755 instance=ExtResource("11_5ired")]
 position = Vector2(192, 128)
 trashCount = 4.0
+
+[node name="PauseMenu" parent="." unique_id=1103245057 instance=ExtResource("17_4f0fj")]
+visible = false
 
 [connection signal="body_entered" from="Basketball/BasketballNetRight" to="Basketball/Score" method="_on_basketball_net_right_body_entered"]
 [connection signal="body_entered" from="Basketball/BasketballNetLeft" to="Basketball/Score" method="_on_basketball_net_left_body_entered"]

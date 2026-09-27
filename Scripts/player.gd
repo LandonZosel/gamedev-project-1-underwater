@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var HeldChipBag: Marker2D = $HeldChipBag
 @onready var HeldCanRings: Marker2D = $HeldCanRings
 @onready var HeldBasketball: Marker2D = $HeldBasketball
+@onready var HeldSponge: Marker2D = $HeldSponge
 @onready var cooldown_timer: Timer = $CooldownTimer
 
 @export var move_speed : float = 100
@@ -27,11 +28,14 @@ var current_area : CharacterBody2D = null
 var movementDisabled : bool = true
 var died : bool = false
 var jumping : bool = false
+var baseSpeed : float
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
 func _ready() -> void:
+	baseSpeed = speed
+	
 	#playing enter animation
 	if firstLevel:
 		anim.play("enter_stage_up")
@@ -117,6 +121,8 @@ func set_item(item: CharacterBody2D):
 		held_item.reparent(get('HeldChipBag'))
 	elif item_name.begins_with('Basketball'):
 		held_item.reparent(get('HeldBasketball'))
+	elif item_name.begins_with('Sponge'):
+		held_item.reparent(get('HeldSponge'))
 	else:
 		held_item.reparent(get('HeldBasketball'))
 	
@@ -156,3 +162,9 @@ func disable_movement():
 
 func enable_movement():
 	movementDisabled = false
+
+func enter_oil():
+	speed = baseSpeed * 0.5
+
+func exit_oil():
+	speed = baseSpeed
