@@ -1,16 +1,14 @@
-[gd_scene format=3 uid="uid://c54m6n7tgyyei"]
+[gd_scene format=3 uid="uid://cvi50y0ys5swt"]
 
-[ext_resource type="Texture2D" uid="uid://bv27m6xg5j7tq" path="res://Sprites/Custom/Crabs/crab_holdup.png" id="1_bhhw3"]
-[ext_resource type="Script" uid="uid://dlr18swvo7err" path="res://Scripts/crab.gd" id="2_lltuq"]
-[ext_resource type="Texture2D" uid="uid://dk1arfsjblgu7" path="res://Sprites/Custom/Crabs/crab_holddown.png" id="4_mhyju"]
-[ext_resource type="Texture2D" uid="uid://bqp8xe2rxfss8" path="res://Sprites/Custom/Crabs/crab_half_and_half_up_1.png" id="5_mc5pv"]
-[ext_resource type="Texture2D" uid="uid://nbm6nf8y2w42" path="res://Sprites/Custom/Crabs/crab_half_and_half_up_2.png" id="6_ur2vb"]
-[ext_resource type="Texture2D" uid="uid://3rn30o4k8b2p" path="res://Sprites/Custom/Crabs/crab_out.png" id="7_ekifd"]
-[ext_resource type="Texture2D" uid="uid://bv1t57xsg3woy" path="res://Sprites/Custom/Crabs/crab_out_up.png" id="8_08ru7"]
-[ext_resource type="Texture2D" uid="uid://df6au70k01gc7" path="res://Sprites/Custom/Crabs/crab_holddown_move_1.png" id="8_lltuq"]
-[ext_resource type="Texture2D" uid="uid://jixq47cmbh3b" path="res://Sprites/Custom/Crabs/crab_holdup_1.png" id="9_f24n4"]
-[ext_resource type="Texture2D" uid="uid://cd0wgbf38nc1b" path="res://Sprites/Custom/Crabs/crab_holddown_move_2.png" id="9_ye3kj"]
-[ext_resource type="Texture2D" uid="uid://g5p4i4a4ue6i" path="res://Sprites/Custom/Crabs/crab_holdup_2.png" id="10_dk35t"]
+[ext_resource type="Texture2D" uid="uid://bv27m6xg5j7tq" path="res://Sprites/Custom/Crabs/crab_holdup.png" id="1_gmoxd"]
+[ext_resource type="Script" uid="uid://bdsxsby6lhrna" path="res://Scripts/trash_crab.gd" id="2_4avx3"]
+[ext_resource type="Texture2D" uid="uid://dk1arfsjblgu7" path="res://Sprites/Custom/Crabs/crab_holddown.png" id="3_240dj"]
+[ext_resource type="Texture2D" uid="uid://bqp8xe2rxfss8" path="res://Sprites/Custom/Crabs/crab_half_and_half_up_1.png" id="4_w311n"]
+[ext_resource type="Texture2D" uid="uid://nbm6nf8y2w42" path="res://Sprites/Custom/Crabs/crab_half_and_half_up_2.png" id="5_67tnh"]
+[ext_resource type="Texture2D" uid="uid://3rn30o4k8b2p" path="res://Sprites/Custom/Crabs/crab_out.png" id="6_kxm7h"]
+[ext_resource type="Texture2D" uid="uid://bv1t57xsg3woy" path="res://Sprites/Custom/Crabs/crab_out_up.png" id="7_88inr"]
+[ext_resource type="Texture2D" uid="uid://jixq47cmbh3b" path="res://Sprites/Custom/Crabs/crab_holdup_1.png" id="8_8d2ts"]
+[ext_resource type="Texture2D" uid="uid://g5p4i4a4ue6i" path="res://Sprites/Custom/Crabs/crab_holdup_2.png" id="9_iel2r"]
 
 [sub_resource type="Animation" id="Animation_tbt0g"]
 length = 0.001
@@ -24,7 +22,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("1_bhhw3")]
+"values": [ExtResource("1_gmoxd")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -65,7 +63,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2.25, 2.5, 2.75, 3.25, 3.5, 3.75, 4, 4.25, 4.5, 4.75),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("4_mhyju"), ExtResource("1_bhhw3"), ExtResource("4_mhyju"), ExtResource("1_bhhw3"), ExtResource("4_mhyju"), ExtResource("1_bhhw3"), ExtResource("5_mc5pv"), ExtResource("6_ur2vb"), ExtResource("5_mc5pv"), ExtResource("6_ur2vb"), ExtResource("5_mc5pv"), ExtResource("6_ur2vb"), ExtResource("1_bhhw3"), ExtResource("7_ekifd"), ExtResource("8_08ru7"), ExtResource("7_ekifd"), ExtResource("8_08ru7"), ExtResource("7_ekifd")]
+"values": [ExtResource("3_240dj"), ExtResource("1_gmoxd"), ExtResource("3_240dj"), ExtResource("1_gmoxd"), ExtResource("3_240dj"), ExtResource("1_gmoxd"), ExtResource("4_w311n"), ExtResource("5_67tnh"), ExtResource("4_w311n"), ExtResource("5_67tnh"), ExtResource("4_w311n"), ExtResource("5_67tnh"), ExtResource("1_gmoxd"), ExtResource("6_kxm7h"), ExtResource("7_88inr"), ExtResource("6_kxm7h"), ExtResource("7_88inr"), ExtResource("6_kxm7h")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -104,23 +102,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("1_bhhw3")]
-}
-
-[sub_resource type="Animation" id="Animation_mhyju"]
-resource_name = "pump"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("8_lltuq"), ExtResource("9_ye3kj"), ExtResource("9_f24n4"), ExtResource("10_dk35t")]
+"values": [ExtResource("1_gmoxd")]
 }
 
 [sub_resource type="Animation" id="Animation_nf12e"]
@@ -137,7 +119,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.25),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [ExtResource("9_f24n4"), ExtResource("10_dk35t")]
+"values": [ExtResource("8_8d2ts"), ExtResource("9_iel2r")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vymbe"]
@@ -145,14 +127,14 @@ _data = {
 &"RESET": SubResource("Animation_tbt0g"),
 &"dance": SubResource("Animation_cklvu"),
 &"idle": SubResource("Animation_mbsno"),
-&"pump": SubResource("Animation_mhyju"),
 &"walk": SubResource("Animation_nf12e")
 }
 
-[node name="Crab" type="Sprite2D" unique_id=37222965 groups=["Crab"]]
-texture = ExtResource("1_bhhw3")
+[node name="DancingCrab" type="Sprite2D" unique_id=1382706921 groups=["Crab"]]
+texture = ExtResource("1_gmoxd")
 offset = Vector2(0, -0.5)
-script = ExtResource("2_lltuq")
+script = ExtResource("2_4avx3")
+trashHeld = false
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=775897799]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=839437462]
 libraries/ = SubResource("AnimationLibrary_vymbe")

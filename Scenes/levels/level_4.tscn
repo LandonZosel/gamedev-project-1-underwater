@@ -10,7 +10,11 @@
 [ext_resource type="PackedScene" uid="uid://dsdbevltpqqjc" path="res://Scenes/trash/sponge.tscn" id="10_fqbfr"]
 [ext_resource type="PackedScene" uid="uid://cavurluy27ph8" path="res://Scenes/menus/pause_menu.tscn" id="10_tvl6r"]
 [ext_resource type="PackedScene" uid="uid://dquwuw13rva2e" path="res://Scenes/key_level_assets/exit.tscn" id="11_t7tm8"]
+[ext_resource type="PackedScene" uid="uid://cvi50y0ys5swt" path="res://Scenes/crabs/dancing_crab.tscn" id="12_tfwf0"]
+[ext_resource type="Texture2D" uid="uid://bv1t57xsg3woy" path="res://Sprites/Custom/Crabs/crab_out_up.png" id="13_jsx5w"]
 [ext_resource type="Script" uid="uid://pcvxy6ugjyxr" path="res://Scripts/camera.gd" id="13_rnmnd"]
+[ext_resource type="Texture2D" uid="uid://j5o5bfctxuia" path="res://Sprites/Custom/Crabs/crab_up.png" id="14_dgevf"]
+[ext_resource type="Texture2D" uid="uid://c56h3guajbvq3" path="res://Sprites/Custom/Crabs/crab_half_and_half_up.png" id="15_55y6d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pimxd"]
 size = Vector2(384, 30)
@@ -144,6 +148,40 @@ oilCount = 6
 
 [node name="PauseMenu" parent="." unique_id=1103245057 instance=ExtResource("10_tvl6r")]
 visible = false
+
+[node name="Crabs" type="Node2D" parent="." unique_id=174961826]
+
+[node name="DancingCrab" parent="Crabs" unique_id=1382706921 instance=ExtResource("12_tfwf0")]
+position = Vector2(136, 779)
+
+[node name="DancingCrab2" parent="Crabs" unique_id=620538021 instance=ExtResource("12_tfwf0")]
+position = Vector2(199, 779)
+
+[node name="DancingCrab3" parent="Crabs" unique_id=1923323969 instance=ExtResource("12_tfwf0")]
+position = Vector2(262, 779)
+
+[node name="CrabOutUp" type="Sprite2D" parent="Crabs" unique_id=663846003]
+position = Vector2(256, 587)
+texture = ExtResource("13_jsx5w")
+
+[node name="CrabUp" type="Sprite2D" parent="Crabs" unique_id=1139351767]
+position = Vector2(96, 411)
+texture = ExtResource("14_dgevf")
+
+[node name="CrabHalfAndHalfUp" type="Sprite2D" parent="Crabs" unique_id=1088220505]
+position = Vector2(272, 347)
+texture = ExtResource("15_55y6d")
+
+[node name="CrabHalfAndHalfUp2" type="Sprite2D" parent="Crabs" unique_id=1465259945]
+position = Vector2(128, 619)
+texture = ExtResource("15_55y6d")
+flip_h = true
+
+[node name="DancingCrab4" parent="Crabs" unique_id=2127827781 instance=ExtResource("12_tfwf0")]
+position = Vector2(696, 667)
+
+[node name="DancingCrab5" parent="Crabs" unique_id=1713650408 instance=ExtResource("12_tfwf0")]
+position = Vector2(662, 667)
 
 [connection signal="child_exiting_tree" from="Oil" to="Sponge" method="_on_oil_child_exiting_tree"]
 [connection signal="on_trash_deleted" from="Drone" to="Exit" method="_on_drone_on_trash_deleted"]

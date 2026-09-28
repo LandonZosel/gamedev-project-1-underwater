@@ -14,6 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://qq6h0hhd83lc" path="res://Scenes/obstacles/oil.tscn" id="9_ufwjq"]
 [ext_resource type="PackedScene" uid="uid://cavurluy27ph8" path="res://Scenes/menus/pause_menu.tscn" id="10_f1ves"]
 [ext_resource type="PackedScene" uid="uid://dsdbevltpqqjc" path="res://Scenes/trash/sponge.tscn" id="14_2sia6"]
+[ext_resource type="Texture2D" uid="uid://mr784duces2g" path="res://Sprites/Custom/Crabs/crab_mini.png" id="15_mrbq2"]
+[ext_resource type="PackedScene" uid="uid://c54m6n7tgyyei" path="res://Scenes/crabs/crab.tscn" id="16_htjfi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pimxd"]
 size = Vector2(384, 30)
@@ -192,6 +194,34 @@ oilCount = 3
 
 [node name="PauseMenu" parent="." unique_id=1103245057 instance=ExtResource("10_f1ves")]
 visible = false
+
+[node name="CrabMini" type="Sprite2D" parent="." unique_id=691787425]
+position = Vector2(-312, 590)
+texture = ExtResource("15_mrbq2")
+
+[node name="CrabMini2" type="Sprite2D" parent="." unique_id=618262863]
+position = Vector2(-280, 590)
+texture = ExtResource("15_mrbq2")
+
+[node name="CrabMini3" type="Sprite2D" parent="." unique_id=590490137]
+position = Vector2(-240, 590)
+texture = ExtResource("15_mrbq2")
+
+[node name="CrabMini4" type="Sprite2D" parent="." unique_id=571361353]
+position = Vector2(-216, 590)
+texture = ExtResource("15_mrbq2")
+
+[node name="Crab" parent="." unique_id=145524005 instance=ExtResource("16_htjfi")]
+position = Vector2(-80, 331)
+pumpAnimation = true
+
+[node name="Crab2" parent="." unique_id=398465384 instance=ExtResource("16_htjfi")]
+position = Vector2(-288, 475)
+pumpAnimation = true
+
+[node name="Crab3" parent="." unique_id=998964562 instance=ExtResource("16_htjfi")]
+position = Vector2(112, 507)
+pumpAnimation = true
 
 [connection signal="child_exiting_tree" from="Oil" to="Sponge" method="_on_oil_child_exiting_tree"]
 [connection signal="on_trash_deleted" from="Drone" to="Exit" method="_on_drone_on_trash_deleted"]

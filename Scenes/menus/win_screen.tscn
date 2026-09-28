@@ -2,20 +2,12 @@
 
 [ext_resource type="TileSet" uid="uid://cxlnowjnoqagq" path="res://Sprites/Atlantis/tileset3.tres" id="2_siffn"]
 [ext_resource type="TileSet" uid="uid://cdqgtjb1pw173" path="res://Sprites/Atlantis/tileset1.tres" id="3_3ttav"]
-[ext_resource type="Texture2D" uid="uid://bv27m6xg5j7tq" path="res://Sprites/Custom/Crabs/crab_holdup.png" id="3_og3js"]
-[ext_resource type="Script" uid="uid://bdsxsby6lhrna" path="res://Scripts/trash_crab.gd" id="4_lq4jq"]
-[ext_resource type="Texture2D" uid="uid://dk1arfsjblgu7" path="res://Sprites/Custom/Crabs/crab_holddown.png" id="5_xx5dd"]
+[ext_resource type="PackedScene" uid="uid://cvi50y0ys5swt" path="res://Scenes/crabs/dancing_crab.tscn" id="3_t3yfx"]
 [ext_resource type="PackedScene" uid="uid://c4o63xtnyopyf" path="res://Scenes/key_level_assets/drone.tscn" id="6_7uq56"]
 [ext_resource type="Script" uid="uid://3f5cx7k2yd3u" path="res://Scripts/player_win_screen.gd" id="6_anhqr"]
-[ext_resource type="Texture2D" uid="uid://bqp8xe2rxfss8" path="res://Sprites/Custom/Crabs/crab_half_and_half_up_1.png" id="6_pls5d"]
-[ext_resource type="Texture2D" uid="uid://nbm6nf8y2w42" path="res://Sprites/Custom/Crabs/crab_half_and_half_up_2.png" id="7_whkg8"]
 [ext_resource type="PackedScene" uid="uid://curaxfesyhabc" path="res://Scenes/player/player.tscn" id="8_4vo3d"]
 [ext_resource type="Script" uid="uid://dfrdiorasymf8" path="res://Scripts/exit_button.gd" id="8_pswg7"]
-[ext_resource type="Texture2D" uid="uid://3rn30o4k8b2p" path="res://Sprites/Custom/Crabs/crab_out.png" id="8_x05dc"]
 [ext_resource type="Script" uid="uid://q4assl7smk7a" path="res://Scripts/button.gd" id="9_w68o4"]
-[ext_resource type="Texture2D" uid="uid://bv1t57xsg3woy" path="res://Sprites/Custom/Crabs/crab_out_up.png" id="9_yev4v"]
-[ext_resource type="Texture2D" uid="uid://jixq47cmbh3b" path="res://Sprites/Custom/Crabs/crab_holdup_1.png" id="10_m3d0u"]
-[ext_resource type="Texture2D" uid="uid://g5p4i4a4ue6i" path="res://Sprites/Custom/Crabs/crab_holdup_2.png" id="11_yfbqi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pimxd"]
 size = Vector2(372, 30)
@@ -25,126 +17,6 @@ size = Vector2(48, 83)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bca7a"]
 size = Vector2(47, 83)
-
-[sub_resource type="Animation" id="Animation_tbt0g"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("3_og3js")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:flip_h")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:offset")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -0.5)]
-}
-
-[sub_resource type="Animation" id="Animation_cklvu"]
-resource_name = "dance"
-length = 5.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2.25, 2.5, 2.75, 3.25, 3.5, 3.75, 4, 4.25, 4.5, 4.75),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("5_xx5dd"), ExtResource("3_og3js"), ExtResource("5_xx5dd"), ExtResource("3_og3js"), ExtResource("5_xx5dd"), ExtResource("3_og3js"), ExtResource("6_pls5d"), ExtResource("7_whkg8"), ExtResource("6_pls5d"), ExtResource("7_whkg8"), ExtResource("6_pls5d"), ExtResource("7_whkg8"), ExtResource("3_og3js"), ExtResource("8_x05dc"), ExtResource("9_yev4v"), ExtResource("8_x05dc"), ExtResource("9_yev4v"), ExtResource("8_x05dc")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:flip_h")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 2, 3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [false, true, false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:offset")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(1.5, 2, 3, 3.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0, -0.5), Vector2(5, -0.5), Vector2(-5, -0.5), Vector2(0, -0.5)]
-}
-
-[sub_resource type="Animation" id="Animation_mbsno"]
-resource_name = "idle"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("3_og3js")]
-}
-
-[sub_resource type="Animation" id="Animation_nf12e"]
-resource_name = "walk"
-length = 0.5
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [ExtResource("10_m3d0u"), ExtResource("11_yfbqi")]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_vymbe"]
-_data = {
-&"RESET": SubResource("Animation_tbt0g"),
-&"dance": SubResource("Animation_cklvu"),
-&"idle": SubResource("Animation_mbsno"),
-&"walk": SubResource("Animation_nf12e")
-}
 
 [sub_resource type="LabelSettings" id="LabelSettings_ym5bi"]
 shadow_color = Color(0, 0, 0, 1)
@@ -297,65 +169,23 @@ shape = SubResource("RectangleShape2D_pimxd")
 
 [node name="Crabs" type="Node2D" parent="." unique_id=1399033848]
 
-[node name="DancingCrab" type="Sprite2D" parent="Crabs" unique_id=37222965 groups=["Crab"]]
+[node name="DancingCrab" parent="Crabs" unique_id=1382706921 instance=ExtResource("3_t3yfx")]
 position = Vector2(72, 43)
-texture = ExtResource("3_og3js")
-offset = Vector2(0, -0.5)
-script = ExtResource("4_lq4jq")
-trashHeld = false
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Crabs/DancingCrab" unique_id=775897799]
-libraries/ = SubResource("AnimationLibrary_vymbe")
-
-[node name="DancingCrab2" type="Sprite2D" parent="Crabs" unique_id=205169332 groups=["Crab"]]
+[node name="DancingCrab2" parent="Crabs" unique_id=1867420526 instance=ExtResource("3_t3yfx")]
 position = Vector2(264, 43)
-texture = ExtResource("3_og3js")
-offset = Vector2(0, -0.5)
-script = ExtResource("4_lq4jq")
-trashHeld = false
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Crabs/DancingCrab2" unique_id=117453639]
-libraries/ = SubResource("AnimationLibrary_vymbe")
-
-[node name="DancingCrab3" type="Sprite2D" parent="Crabs" unique_id=1137554776 groups=["Crab"]]
+[node name="DancingCrab3" parent="Crabs" unique_id=2021550700 instance=ExtResource("3_t3yfx")]
 position = Vector2(120, 43)
-texture = ExtResource("3_og3js")
-offset = Vector2(0, -0.5)
-script = ExtResource("4_lq4jq")
-trashHeld = false
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Crabs/DancingCrab3" unique_id=518931259]
-libraries/ = SubResource("AnimationLibrary_vymbe")
-
-[node name="DancingCrab4" type="Sprite2D" parent="Crabs" unique_id=1140276183 groups=["Crab"]]
+[node name="DancingCrab4" parent="Crabs" unique_id=1915479559 instance=ExtResource("3_t3yfx")]
 position = Vector2(312, 43)
-texture = ExtResource("3_og3js")
-offset = Vector2(0, -0.5)
-script = ExtResource("4_lq4jq")
-trashHeld = false
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Crabs/DancingCrab4" unique_id=1935516358]
-libraries/ = SubResource("AnimationLibrary_vymbe")
-
-[node name="DancingCrab5" type="Sprite2D" parent="Crabs" unique_id=1936586674 groups=["Crab"]]
+[node name="DancingCrab5" parent="Crabs" unique_id=1403587249 instance=ExtResource("3_t3yfx")]
 position = Vector2(216, 43)
-texture = ExtResource("3_og3js")
-offset = Vector2(0, -0.5)
-script = ExtResource("4_lq4jq")
-trashHeld = false
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Crabs/DancingCrab5" unique_id=129736311]
-libraries/ = SubResource("AnimationLibrary_vymbe")
-
-[node name="DancingCrab6" type="Sprite2D" parent="Crabs" unique_id=1997002132 groups=["Crab"]]
+[node name="DancingCrab6" parent="Crabs" unique_id=245441989 instance=ExtResource("3_t3yfx")]
 position = Vector2(168, 43)
-texture = ExtResource("3_og3js")
-offset = Vector2(0, -0.5)
-script = ExtResource("4_lq4jq")
-trashHeld = false
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Crabs/DancingCrab6" unique_id=223071220]
-libraries/ = SubResource("AnimationLibrary_vymbe")
 
 [node name="Drone" parent="." unique_id=158295161 instance=ExtResource("6_7uq56")]
 position = Vector2(192, -40)
@@ -372,10 +202,10 @@ script = ExtResource("6_anhqr")
 
 [node name="ThanksForPlaying" type="Label" parent="." unique_id=1086598677]
 z_index = 99
-offset_left = 48.0
-offset_top = -120.0
-offset_right = 208.0
-offset_bottom = -88.0
+offset_left = 119.0
+offset_top = -131.0
+offset_right = 266.0
+offset_bottom = -99.0
 text = "Thanks for playing:"
 label_settings = SubResource("LabelSettings_ym5bi")
 horizontal_alignment = 1
@@ -385,10 +215,10 @@ z_index = 99
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = 80.0
-offset_top = -96.0
-offset_right = 160.0
-offset_bottom = -32.0
+offset_left = 119.0
+offset_top = -111.0
+offset_right = 266.0
+offset_bottom = -47.0
 grow_horizontal = 0
 text = "TOO
 MANY
@@ -400,17 +230,16 @@ vertical_alignment = 1
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1682590719]
 
 [node name="MainMenuButton" type="Button" parent="CanvasLayer" unique_id=2085152075]
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -320.0
-offset_top = -260.0
-offset_right = -112.0
-offset_bottom = -196.0
-grow_horizontal = 0
-grow_vertical = 2
+anchors_preset = -1
+anchor_left = 0.272
+anchor_top = 0.799
+anchor_right = 0.272
+anchor_bottom = 0.799
+offset_left = -104.344025
+offset_top = -31.752014
+offset_right = 103.655975
+offset_bottom = 32.247986
+grow_vertical = 0
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_pswg7")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_kx27g")
@@ -425,9 +254,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -104.0
+offset_left = -105.0
 offset_top = -32.0
-offset_right = 104.0
+offset_right = 103.0
 offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -437,15 +266,15 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ExitButton" type="Button" parent="CanvasLayer" unique_id=1817192766]
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -320.0
-offset_top = -456.0
-offset_right = -112.0
-offset_bottom = -392.0
+anchors_preset = -1
+anchor_left = 0.734
+anchor_top = 0.799
+anchor_right = 0.734
+anchor_bottom = 0.799
+offset_left = -103.568054
+offset_top = -31.752014
+offset_right = 104.431946
+offset_bottom = 32.247986
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_font_sizes/font_size = 40

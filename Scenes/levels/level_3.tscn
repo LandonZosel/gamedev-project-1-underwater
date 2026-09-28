@@ -11,13 +11,17 @@
 [ext_resource type="PackedScene" uid="uid://51vvslbvatgv" path="res://Scenes/crabs/crab_with_chip_bag.tscn" id="9_bfs5l"]
 [ext_resource type="PackedScene" uid="uid://k3u607aw0htv" path="res://Scenes/crabs/stuck_crab.tscn" id="10_0ck02"]
 [ext_resource type="PackedScene" uid="uid://dquwuw13rva2e" path="res://Scenes/key_level_assets/exit.tscn" id="11_5ired"]
+[ext_resource type="PackedScene" uid="uid://c54m6n7tgyyei" path="res://Scenes/crabs/crab.tscn" id="11_bttte"]
+[ext_resource type="Texture2D" uid="uid://mr784duces2g" path="res://Sprites/Custom/Crabs/crab_mini.png" id="12_xf4a3"]
 [ext_resource type="Script" uid="uid://p4hvg61c5yl6" path="res://Scripts/score.gd" id="13_3s0gs"]
+[ext_resource type="PackedScene" uid="uid://dg0yw42515hih" path="res://Scenes/crabs/crab_stack.tscn" id="13_5ired"]
 [ext_resource type="Script" uid="uid://pcvxy6ugjyxr" path="res://Scripts/camera.gd" id="13_dlr6t"]
 [ext_resource type="PackedScene" uid="uid://dx65atkhc62fa" path="res://Scenes/basketball/basketball.tscn" id="14_bfs5l"]
 [ext_resource type="PackedScene" uid="uid://dx4clh1w5bgm2" path="res://Scenes/basketball/basketball_net_right.tscn" id="14_m35j8"]
 [ext_resource type="PackedScene" uid="uid://b2xjgwmgh066j" path="res://Scenes/basketball/basketball_net_left.tscn" id="15_m35j8"]
 [ext_resource type="Texture2D" uid="uid://clo7kbdvhe6b" path="res://Sprites/Custom/Basketball/basketball_backboard_only.png" id="16_4f0fj"]
 [ext_resource type="PackedScene" uid="uid://cavurluy27ph8" path="res://Scenes/menus/pause_menu.tscn" id="17_4f0fj"]
+[ext_resource type="PackedScene" uid="uid://cvi50y0ys5swt" path="res://Scenes/crabs/dancing_crab.tscn" id="19_s70m6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pimxd"]
 size = Vector2(384, 30)
@@ -160,6 +164,57 @@ move_direction = Vector2(-20, 0)
 
 [node name="CrabWithChipBag" parent="Crabs" unique_id=179334656 instance=ExtResource("9_bfs5l")]
 position = Vector2(424, 171)
+
+[node name="DancingCrab" parent="Crabs" unique_id=1382706921 instance=ExtResource("19_s70m6")]
+position = Vector2(-729, -90)
+
+[node name="DancingCrab2" parent="Crabs" unique_id=343407305 instance=ExtResource("19_s70m6")]
+position = Vector2(-647, -90)
+
+[node name="Crab" parent="Crabs" unique_id=1546578904 instance=ExtResource("11_bttte")]
+position = Vector2(-549, 363)
+move_direction = Vector2(300, 0)
+
+[node name="Crab2" parent="Crabs" unique_id=939863104 instance=ExtResource("11_bttte")]
+position = Vector2(-313, 363)
+move_direction = Vector2(-300, 0)
+
+[node name="Crab3" parent="Crabs" unique_id=1002112279 instance=ExtResource("11_bttte")]
+position = Vector2(-434, 363)
+move_direction = Vector2(300, 0)
+
+[node name="Crab4" parent="Crabs" unique_id=1563685165 instance=ExtResource("11_bttte")]
+position = Vector2(-688, 363)
+move_direction = Vector2(300, 0)
+
+[node name="Crab5" parent="Crabs" unique_id=2005153289 instance=ExtResource("11_bttte")]
+position = Vector2(-495, 363)
+move_direction = Vector2(-200, 0)
+
+[node name="Crab6" parent="Crabs" unique_id=1628048788 instance=ExtResource("11_bttte")]
+position = Vector2(-253, 363)
+move_direction = Vector2(-400, 0)
+
+[node name="Crab7" parent="Crabs" unique_id=498539074 instance=ExtResource("11_bttte")]
+position = Vector2(-610, 363)
+move_direction = Vector2(400, 0)
+
+[node name="Crab8" parent="Crabs" unique_id=1438119384 instance=ExtResource("11_bttte")]
+position = Vector2(90, 475)
+move_direction = Vector2(50, 0)
+
+[node name="Crab9" parent="Crabs" unique_id=2059662309 instance=ExtResource("11_bttte")]
+position = Vector2(140, 475)
+move_direction = Vector2(-50, 0)
+
+[node name="CrabMini" type="Sprite2D" parent="Crabs" unique_id=204717522]
+position = Vector2(-152, 158)
+texture = ExtResource("12_xf4a3")
+
+[node name="CrabStack" parent="Crabs" unique_id=1667242382 instance=ExtResource("13_5ired")]
+position = Vector2(519, 171)
+move_direction = Vector2(-30, 0)
+move_speed = 2.0
 
 [node name="Basketball" type="Node2D" parent="." unique_id=1471473698]
 

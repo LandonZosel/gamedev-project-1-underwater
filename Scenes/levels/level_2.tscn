@@ -8,6 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://51vvslbvatgv" path="res://Scenes/crabs/crab_with_chip_bag.tscn" id="5_ym5bi"]
 [ext_resource type="PackedScene" uid="uid://dp5rs1hrtelkp" path="res://Scenes/crabs/crab_with_bottle.tscn" id="6_yuh2w"]
 [ext_resource type="PackedScene" uid="uid://c4o63xtnyopyf" path="res://Scenes/key_level_assets/drone.tscn" id="7_ehpbh"]
+[ext_resource type="Texture2D" uid="uid://3rn30o4k8b2p" path="res://Sprites/Custom/Crabs/crab_out.png" id="7_lnq35"]
+[ext_resource type="Texture2D" uid="uid://mr784duces2g" path="res://Sprites/Custom/Crabs/crab_mini.png" id="8_35bfj"]
+[ext_resource type="PackedScene" uid="uid://c54m6n7tgyyei" path="res://Scenes/crabs/crab.tscn" id="9_35bfj"]
 [ext_resource type="PackedScene" uid="uid://dquwuw13rva2e" path="res://Scenes/key_level_assets/exit.tscn" id="11_kb2w7"]
 [ext_resource type="PackedScene" uid="uid://cavurluy27ph8" path="res://Scenes/menus/pause_menu.tscn" id="11_yuh2w"]
 [ext_resource type="Script" uid="uid://pcvxy6ugjyxr" path="res://Scripts/camera.gd" id="13_lnq35"]
@@ -80,6 +83,28 @@ position = Vector2(848, 171)
 
 [node name="CrabWithBottle" parent="Crabs" unique_id=1400648254 instance=ExtResource("6_yuh2w")]
 position = Vector2(736, 43)
+
+[node name="CrabMom" type="Sprite2D" parent="Crabs" unique_id=2005152451]
+position = Vector2(837, 42.5)
+texture = ExtResource("7_lnq35")
+
+[node name="CrabMini" type="Sprite2D" parent="Crabs" unique_id=1352669705]
+position = Vector2(848, 46)
+texture = ExtResource("8_35bfj")
+
+[node name="CrabDad" type="Sprite2D" parent="Crabs" unique_id=506819392]
+position = Vector2(859, 42.5)
+texture = ExtResource("7_lnq35")
+
+[node name="Crab" parent="Crabs" unique_id=968468887 instance=ExtResource("9_35bfj")]
+position = Vector2(125, 171)
+move_direction = Vector2(30, 0)
+move_speed = 7.9
+
+[node name="Crab2" parent="Crabs" unique_id=1245879982 instance=ExtResource("9_35bfj")]
+position = Vector2(279, 171)
+move_direction = Vector2(-30, 0)
+move_speed = 8.3
 
 [node name="Mines" type="Node2D" parent="." unique_id=240855846]
 
