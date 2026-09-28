@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://opm1rdncahy8"]
+
+[ext_resource type="Script" uid="uid://cj82osvqreh68" path="res://Scripts/crab_wall.gd" id="1_5ww1d"]
+[ext_resource type="PackedScene" uid="uid://c54m6n7tgyyei" path="res://Scenes/crabs/crab.tscn" id="1_u65e6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u65e6"]
+size = Vector2(12, 20)
+
+[node name="CrabWall" type="Area2D" unique_id=2027824570]
+z_index = 69
+collision_mask = 2
+script = ExtResource("1_5ww1d")
+
+[node name="Crab20" parent="." unique_id=1081021413 instance=ExtResource("1_u65e6")]
+position = Vector2(0, -35)
+rotation = 2.4469516
+
+[node name="Crab19" parent="." unique_id=1123724685 instance=ExtResource("1_u65e6")]
+position = Vector2(7.0000005, -35)
+rotation = -2.5307274
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="Crab18" parent="." unique_id=1290298325 instance=ExtResource("1_u65e6")]
+position = Vector2(3, 17)
+rotation = 3.1241393
+
+[node name="Crab17" parent="." unique_id=595138255 instance=ExtResource("1_u65e6")]
+position = Vector2(0, -35.000004)
+rotation = -0.116937056
+
+[node name="Crab16" parent="." unique_id=626920714 instance=ExtResource("1_u65e6")]
+position = Vector2(-1, -26)
+rotation = -0.26529005
+
+[node name="Crab15" parent="." unique_id=1283053708 instance=ExtResource("1_u65e6")]
+position = Vector2(2, -5)
+rotation = 2.5028021
+
+[node name="Crab14" parent="." unique_id=1532777694 instance=ExtResource("1_u65e6")]
+position = Vector2(0, -11)
+rotation = -2.555162
+
+[node name="Crab13" parent="." unique_id=725578439 instance=ExtResource("1_u65e6")]
+position = Vector2(8, 7)
+rotation = 2.476622
+
+[node name="Crab12" parent="." unique_id=53703355 instance=ExtResource("1_u65e6")]
+position = Vector2(1.999999, -22)
+rotation = -0.5742133
+
+[node name="Crab11" parent="." unique_id=983199337 instance=ExtResource("1_u65e6")]
+position = Vector2(0, -5)
+rotation = 0.46949357
+
+[node name="Crab10" parent="." unique_id=336965856 instance=ExtResource("1_u65e6")]
+position = Vector2(5, 10)
+rotation = -0.27227136
+
+[node name="Crab9" parent="." unique_id=714757630 instance=ExtResource("1_u65e6")]
+position = Vector2(4, -29.000002)
+rotation = 1.6685348
+
+[node name="Crab8" parent="." unique_id=1974151802 instance=ExtResource("1_u65e6")]
+position = Vector2(0, 7)
+rotation = 0.29670596
+
+[node name="Crab7" parent="." unique_id=1871136440 instance=ExtResource("1_u65e6")]
+position = Vector2(6, -9)
+rotation = -1.3561208
+
+[node name="Crab6" parent="." unique_id=20251355 instance=ExtResource("1_u65e6")]
+position = Vector2(6.9999995, -20)
+rotation = -2.6860616
+
+[node name="Crab5" parent="." unique_id=748245465 instance=ExtResource("1_u65e6")]
+position = Vector2(7.0000005, -19)
+rotation = 0.3228859
+
+[node name="Crab2" parent="." unique_id=299487721 instance=ExtResource("1_u65e6")]
+position = Vector2(10, -4)
+rotation = 0.5742133
+
+[node name="Crab" parent="." unique_id=808082421 instance=ExtResource("1_u65e6")]
+position = Vector2(1, 12)
+rotation = 2.4469516
+
+[node name="Crab3" parent="." unique_id=1561220390 instance=ExtResource("1_u65e6")]
+position = Vector2(5.999998, -31)
+rotation = -0.6527531
+
+[node name="Crab4" parent="." unique_id=37222965 instance=ExtResource("1_u65e6")]
+position = Vector2(1, 0)
+rotation = -0.46949357
+
+[node name="Area" type="CollisionShape2D" parent="." unique_id=458501380]
+position = Vector2(4, -11)
+shape = SubResource("RectangleShape2D_u65e6")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

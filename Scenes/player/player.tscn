@@ -1,10 +1,14 @@
 [gd_scene format=3 uid="uid://curaxfesyhabc"]
 
 [ext_resource type="Script" uid="uid://dx7cbo2xginff" path="res://Scripts/player.gd" id="1_ca0mu"]
-[ext_resource type="Texture2D" uid="uid://dprq38ulmrxi5" path="res://Sprites/Custom/Player/dolphin_crab_new_idle.png" id="1_vgqql"]
-[ext_resource type="Texture2D" uid="uid://dkht3vvv6hunl" path="res://Sprites/Custom/Player/dolphin_crab_new_move_1.png" id="2_fkybt"]
-[ext_resource type="Texture2D" uid="uid://cf7ta3cvkm6d4" path="res://Sprites/Custom/Player/dolphin_crab_new_move_2.png" id="3_x3wgy"]
-[ext_resource type="Texture2D" uid="uid://b6cjma80luloy" path="res://Sprites/Custom/Player/dolphin_crab_new_move_3.png" id="4_3smsa"]
+[ext_resource type="Texture2D" uid="uid://mt40bg3u6f7q" path="res://Sprites/Dolphin Baby/dolphin_idle.png" id="2_kd672"]
+[ext_resource type="Texture2D" uid="uid://wfuwoktk4qfp" path="res://Sprites/Custom/Player/crab_idle.png" id="3_t3oqc"]
+[ext_resource type="Texture2D" uid="uid://blw8e8hj3l14a" path="res://Sprites/Dolphin Baby/dolphin_move_1.png" id="4_p8lfk"]
+[ext_resource type="Texture2D" uid="uid://cw1ip43asf8bp" path="res://Sprites/Dolphin Baby/dolphin_move_2.png" id="5_uawwb"]
+[ext_resource type="Texture2D" uid="uid://dxfp6k0s0o4nm" path="res://Sprites/Dolphin Baby/dolphin_move_3.png" id="6_ag54m"]
+[ext_resource type="Texture2D" uid="uid://cuvcqm86e4qw1" path="res://Sprites/Custom/Player/crab_move_1.png" id="7_g7b1g"]
+[ext_resource type="Texture2D" uid="uid://b5okclytvfoe7" path="res://Sprites/Custom/Player/crab_move_2.png" id="8_h0khc"]
+[ext_resource type="Texture2D" uid="uid://ba524bg0c1heo" path="res://Sprites/Custom/Player/crab_move_3.png" id="9_6vj4j"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cvnsp"]
 radius = 2.0
@@ -18,14 +22,14 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:texture")
+tracks/0/path = NodePath("Dolphin:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("1_vgqql")]
+"values": [ExtResource("2_kd672")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -110,6 +114,18 @@ tracks/7/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(15, -2)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Crab:texture")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_t3oqc")]
 }
 
 [sub_resource type="Animation" id="Animation_e41v5"]
@@ -241,14 +257,26 @@ length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:texture")
+tracks/0/path = NodePath("Dolphin:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("1_vgqql")]
+"values": [ExtResource("2_kd672")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Crab:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_t3oqc")]
 }
 
 [sub_resource type="Animation" id="Animation_6t5aa"]
@@ -258,14 +286,14 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:texture")
+tracks/0/path = NodePath("Dolphin:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("2_fkybt"), ExtResource("3_x3wgy"), ExtResource("4_3smsa"), ExtResource("1_vgqql")]
+"values": [ExtResource("4_p8lfk"), ExtResource("5_uawwb"), ExtResource("6_ag54m"), ExtResource("2_kd672")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -327,6 +355,18 @@ tracks/5/keys = {
 "update": 0,
 "values": [Vector2(14, -2), Vector2(15, -2), Vector2(15, -1), Vector2(15, -2)]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Crab:texture")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("7_g7b1g"), ExtResource("8_h0khc"), ExtResource("9_6vj4j"), ExtResource("3_t3oqc")]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vgqql"]
 _data = {
@@ -343,9 +383,13 @@ z_index = 99
 collision_mask = 0
 script = ExtResource("1_ca0mu")
 
-[node name="Sprite" type="Sprite2D" parent="." unique_id=1745029707]
+[node name="Dolphin" type="Sprite2D" parent="." unique_id=1745029707]
 position = Vector2(2, 1)
-texture = ExtResource("1_vgqql")
+texture = ExtResource("2_kd672")
+
+[node name="Crab" type="Sprite2D" parent="." unique_id=784849722]
+position = Vector2(2, 1)
+texture = ExtResource("3_t3oqc")
 
 [node name="DolphinHitbox" type="CollisionShape2D" parent="." unique_id=1787071373]
 position = Vector2(1, -1)

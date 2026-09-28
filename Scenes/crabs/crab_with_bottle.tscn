@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bv27m6xg5j7tq" path="res://Sprites/Custom/Crabs/crab_holdup.png" id="1_6wfvq"]
 [ext_resource type="PackedScene" uid="uid://1ru70fbvimqa" path="res://Scenes/trash/bottle.tscn" id="2_6wfvq"]
-[ext_resource type="Script" uid="uid://bdsxsby6lhrna" path="res://Scripts/crab.gd" id="2_mbsno"]
+[ext_resource type="Script" uid="uid://bdsxsby6lhrna" path="res://Scripts/trash_crab.gd" id="2_mbsno"]
 [ext_resource type="Texture2D" uid="uid://jixq47cmbh3b" path="res://Sprites/Custom/Crabs/crab_holdup_1.png" id="4_6mk05"]
 [ext_resource type="Texture2D" uid="uid://dk1arfsjblgu7" path="res://Sprites/Custom/Crabs/crab_holddown.png" id="4_gwlya"]
 [ext_resource type="Texture2D" uid="uid://bqp8xe2rxfss8" path="res://Sprites/Custom/Crabs/crab_half_and_half_up_1.png" id="5_fcwm8"]

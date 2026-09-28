@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://vjgn785koaed"]
 
 [ext_resource type="Texture2D" uid="uid://bv27m6xg5j7tq" path="res://Sprites/Custom/Crabs/crab_holdup.png" id="1_x88sy"]
-[ext_resource type="Script" uid="uid://bdsxsby6lhrna" path="res://Scripts/crab.gd" id="2_7of2f"]
+[ext_resource type="Script" uid="uid://bdsxsby6lhrna" path="res://Scripts/trash_crab.gd" id="2_7of2f"]
 [ext_resource type="PackedScene" uid="uid://be60afwpig4li" path="res://Scenes/trash/can_rings.tscn" id="2_mqpen"]
 [ext_resource type="Texture2D" uid="uid://dk1arfsjblgu7" path="res://Sprites/Custom/Crabs/crab_holddown.png" id="4_ritq7"]
 [ext_resource type="Texture2D" uid="uid://jixq47cmbh3b" path="res://Sprites/Custom/Crabs/crab_holdup_1.png" id="4_x2c12"]

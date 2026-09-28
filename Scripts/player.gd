@@ -7,6 +7,8 @@ extends CharacterBody2D
 @onready var HeldBasketball: Marker2D = $HeldBasketball
 @onready var HeldSponge: Marker2D = $HeldSponge
 @onready var cooldown_timer: Timer = $CooldownTimer
+@onready var crab : Sprite2D = $Crab
+@onready var crabHitbox : CollisionShape2D = $CrabHitbox
 
 @export var gravity : float = 120
 @export var jump_force : float = 1.25
@@ -21,21 +23,29 @@ var move_direction : float
 var held_item : CharacterBody2D = null
 var current_area : CharacterBody2D = null
 var movementDisabled : bool = true
+var gravitateTowardsExit : bool = false
 var died : bool = false
 var jumping : bool = false
 var baseSpeed : float
+var exit: Node2D
 
 func _ready() -> void:
 	baseSpeed = speed
 	
+	exit = get_tree().get_first_node_in_group('Exit')
+	
 	#playing enter animation
 	if firstLevel:
+		crab.visible = false
+		crabHitbox.disabled = true
 		anim.play("enter_stage_up")
 	else:
 		anim.play("enter_stage")
 
 func _physics_process(delta: float) -> void:
 	if movementDisabled:
+		if gravitateTowardsExit:
+			global_position = global_position.lerp(exit.global_position, 7.0 * delta)
 		return
 	
 	if _in_water():
@@ -60,12 +70,12 @@ func _physics_process(delta: float) -> void:
 			#uh oh we need to unstuck the player
 			if (global_position.x < 192 && global_position.x > -64) || (global_position.x < -690):
 				#veer right
-				velocity = Vector2(randi_range(10, 100), randi_range(-10, -100))
+				velocity = Vector2(randi_range(10, 100), randi_range(-100, -10))
 			elif (global_position.x > 192) || (global_position.x > -690 && global_position.x < -450):
 				#veer left 
-				velocity = Vector2(randi_range(-100, -10), randi_range(-10, -100))
+				velocity = Vector2(randi_range(-100, -10), randi_range(-100, -10))
 			else:
-				velocity = Vector2(randi_range(-100, 100), randi_range(-10, -100))
+				velocity = Vector2(randi_range(-100, 100), randi_range(-100, -10))
 		#not in water, apply gravity with smooth rotation
 		velocity.y += gravity * delta
 		if velocity.length() > 0:
@@ -146,6 +156,7 @@ func kill_player():
 
 func start_exit():
 	disable_movement()
+	gravitateTowardsExit = true
 	anim.play('exit_stage') #triggers exit_stage after animation finishes
 
 func exit_stage():

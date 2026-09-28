@@ -2,9 +2,51 @@
 
 [ext_resource type="Script" uid="uid://hmkhb15cm1m7" path="res://Scripts/mine.gd" id="1_mygvu"]
 [ext_resource type="Texture2D" uid="uid://b30h2880ai12j" path="res://Sprites/Custom/Mine/mine.png" id="1_qoe3o"]
+[ext_resource type="Texture2D" uid="uid://bd2vtlsnx6xmj" path="res://Sprites/Custom/Mine/mine_idle_1.png" id="3_jcviv"]
+[ext_resource type="Texture2D" uid="uid://c5qjiwxifwu4d" path="res://Sprites/Custom/Mine/mine_idle_2.png" id="4_2ohi7"]
+[ext_resource type="Texture2D" uid="uid://cpc0j47cjab2m" path="res://Sprites/Custom/Mine/mine_idle_3.png" id="5_1a7xb"]
+[ext_resource type="Texture2D" uid="uid://dg0qb1w00vao7" path="res://Sprites/Custom/Mine/mine_idle_4.png" id="6_03fuo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6444e"]
 size = Vector2(12, 12)
+
+[sub_resource type="Animation" id="Animation_bjud8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_qoe3o")]
+}
+
+[sub_resource type="Animation" id="Animation_c5ubi"]
+resource_name = "idle"
+length = 2.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 1, 1.1, 1.2, 1.3, 2.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_qoe3o"), ExtResource("3_jcviv"), ExtResource("4_2ohi7"), ExtResource("3_jcviv"), ExtResource("1_qoe3o"), ExtResource("5_1a7xb"), ExtResource("6_03fuo"), ExtResource("5_1a7xb")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3vsi6"]
+_data = {
+&"RESET": SubResource("Animation_bjud8"),
+&"idle": SubResource("Animation_c5ubi")
+}
 
 [node name="Mine" type="Area2D" unique_id=204913010]
 collision_layer = 16
@@ -16,5 +58,8 @@ texture = ExtResource("1_qoe3o")
 
 [node name="Hitbox" type="CollisionShape2D" parent="." unique_id=1647363208]
 shape = SubResource("RectangleShape2D_6444e")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=623280132]
+libraries/ = SubResource("AnimationLibrary_3vsi6")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

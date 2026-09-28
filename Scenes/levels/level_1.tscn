@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://ujq56y4furf4" path="res://Sprites/Custom/sign.png" id="4_dsuda"]
 [ext_resource type="PackedScene" uid="uid://curaxfesyhabc" path="res://Scenes/player/player.tscn" id="4_iu068"]
 [ext_resource type="Script" uid="uid://pcvxy6ugjyxr" path="res://Scripts/camera.gd" id="4_n8oda"]
+[ext_resource type="PackedScene" uid="uid://opm1rdncahy8" path="res://Scenes/crabs/crab_wall.tscn" id="6_s5b24"]
 [ext_resource type="PackedScene" uid="uid://c4o63xtnyopyf" path="res://Scenes/key_level_assets/drone.tscn" id="8_n3ge2"]
 [ext_resource type="PackedScene" uid="uid://cavurluy27ph8" path="res://Scenes/menus/pause_menu.tscn" id="9_dsuda"]
 [ext_resource type="PackedScene" uid="uid://vjgn785koaed" path="res://Scenes/crabs/crab_with_can_rings.tscn" id="11_sskdo"]
@@ -91,6 +92,9 @@ shape = SubResource("RectangleShape2D_bca7a")
 
 [node name="CrabWithCanRings" parent="Crabs" unique_id=37222965 instance=ExtResource("11_sskdo")]
 position = Vector2(192, 123)
+
+[node name="CrabWall" parent="Crabs" unique_id=1897553320 instance=ExtResource("6_s5b24")]
+position = Vector2(25, 96)
 
 [node name="Drone" parent="." unique_id=158295161 instance=ExtResource("8_n3ge2")]
 position = Vector2(192, -40)

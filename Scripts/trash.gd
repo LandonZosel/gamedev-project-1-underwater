@@ -39,12 +39,12 @@ func _physics_process(delta: float) -> void:
 		#uh oh we need to unstuck the trash
 		if (global_position.x < 192 && global_position.x > -64) || (global_position.x < -690):
 			#veer right
-			velocity = Vector2(randi_range(10, 100), randi_range(-10, -100))
+			velocity = Vector2(randi_range(10, 100), randi_range(-100, -10))
 		elif (global_position.x > 192) || (global_position.x > -690 && global_position.x < -450):
 			#veer left 
-			velocity = Vector2(randi_range(-100, -10), randi_range(-10, -100))
+			velocity = Vector2(randi_range(-100, -10), randi_range(-100, -10))
 		else:
-			velocity = Vector2(randi_range(-100, 100), randi_range(-10, -100))
+			velocity = Vector2(randi_range(-100, 100), randi_range(-100, -10))
 	
 	#if trash randomly gets flung fast, stop movement
 	if velocity.y > 150 || velocity.x > 150 || velocity.x < -150 || velocity.y < -150:

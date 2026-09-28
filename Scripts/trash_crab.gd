@@ -1,4 +1,4 @@
-extends Area2D
+extends Sprite2D
 
 @onready var anim : AnimationPlayer = $AnimationPlayer
 @onready var start_pos : Vector2 = global_position
@@ -6,8 +6,12 @@ extends Area2D
 
 @export var move_direction : Vector2
 @export var move_speed : float = 10
+@export var trashHeld : bool = true
 
 func _physics_process(delta: float) -> void:
+	if not trashHeld:
+		return
+	
 	global_position = global_position.move_toward(target_pos, move_speed * delta)
 	if global_position == target_pos:
 		if target_pos == start_pos:
@@ -19,9 +23,9 @@ func _process(_delta: float) -> void:
 	_manage_animation()
 
 func _manage_animation():
-	anim.play("idle")
-
-func _on_body_entered(body: Node2D):
-	if not body.is_in_group("Player"):
-		return
-	body.call_deferred('kill_player')
+	if not trashHeld:
+		anim.play('dance')
+	elif move_direction.x != 0:
+		anim.play("walk")
+	else:
+		anim.play("idle")

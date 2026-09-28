@@ -3,7 +3,7 @@
 [ext_resource type="TileSet" uid="uid://cxlnowjnoqagq" path="res://Sprites/Atlantis/tileset3.tres" id="2_siffn"]
 [ext_resource type="TileSet" uid="uid://cdqgtjb1pw173" path="res://Sprites/Atlantis/tileset1.tres" id="3_3ttav"]
 [ext_resource type="Texture2D" uid="uid://bv27m6xg5j7tq" path="res://Sprites/Custom/Crabs/crab_holdup.png" id="3_og3js"]
-[ext_resource type="Script" uid="uid://bdsxsby6lhrna" path="res://Scripts/crab.gd" id="4_lq4jq"]
+[ext_resource type="Script" uid="uid://bdsxsby6lhrna" path="res://Scripts/trash_crab.gd" id="4_lq4jq"]
 [ext_resource type="Texture2D" uid="uid://dk1arfsjblgu7" path="res://Sprites/Custom/Crabs/crab_holddown.png" id="5_xx5dd"]
 [ext_resource type="PackedScene" uid="uid://c4o63xtnyopyf" path="res://Scenes/key_level_assets/drone.tscn" id="6_7uq56"]
 [ext_resource type="Script" uid="uid://3f5cx7k2yd3u" path="res://Scripts/player_win_screen.gd" id="6_anhqr"]
